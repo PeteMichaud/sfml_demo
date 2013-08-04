@@ -22,8 +22,7 @@ void Game::Start(void)
 
     SFMLSoundProvider soundProvider;
     ServiceLocator::RegisterServiceLocator(&soundProvider);
-    std::string m = resourcePath("nice_music.ogg");
-    ServiceLocator::GetAudio()->PlaySong(resourcePath("nice_music.ogg"), true);
+    ServiceLocator::GetAudio()->PlaySong("nice_music.ogg", true);
     
     PlayerPaddle *player1 = new PlayerPaddle();
     player1->SetPosition(SCREEN_WIDTH/2, 700);
