@@ -16,7 +16,7 @@ void Game::Start(void)
     if (_gameState != Uninitialized)
         return;
 
-    _mainWindow.create(sf::VideoMode(1024,768,32), "Pang!");
+    _mainWindow.create(sf::VideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,32), "Pang!");
     //_mainWindow.setFramerateLimit(60);
 
     PlayerPaddle *player1 = new PlayerPaddle();
@@ -25,7 +25,7 @@ void Game::Start(void)
     GameBall *ball = new GameBall();
     ball->SetPosition(SCREEN_WIDTH/2, (SCREEN_HEIGHT/2)-15);
 
-    _gameObjectManager.Add("Paddle1",player1);
+    _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Ball", ball);
 
     _gameState = Game::ShowingSplash;
@@ -40,10 +40,7 @@ void Game::Start(void)
 
 bool Game::IsExiting()
 {
-    if (_gameState == Game::Exiting)
-        return true;
-    else
-        return false;
+    return _gameState == Game::Exiting;
 }
 
 sf::RenderWindow& Game::GetWindow()
@@ -51,20 +48,23 @@ sf::RenderWindow& Game::GetWindow()
     return _mainWindow;
 }
 
-sf::Event Game::CurrentEvent()
+const sf::Event& Game::GetInput()
 {
-    return _currentEvent;
+    sf::Event currentEvent;
+    _mainWindow.pollEvent(currentEvent);
+    return currentEvent;
 }
 
-GameObjectManager Game::GameObjects()
+const GameObjectManager& Game::GameObjects()
 {
-    return _gameObjectManager;
+    return Game::_gameObjectManager;
 }
 
 void Game::GameLoop()
 {
-    while(_mainWindow.pollEvent(_currentEvent))
-    {
+    sf::Event currentEvent;
+    _mainWindow.pollEvent(currentEvent);
+    
         switch (_gameState) {
             case Game::ShowingMenu:
             {
@@ -78,20 +78,20 @@ void Game::GameLoop()
             }
             case Game::Playing:
             {
-                _mainWindow.clear(sf::Color(255,0,0));
+                _mainWindow.clear(sf::Color(0,0,0));
 
-                _gameObjectManager.UpdateAll(_clock.restart().asSeconds());
+                _gameObjectManager.UpdateAll();
                 _gameObjectManager.DrawAll(_mainWindow);
                 _mainWindow.display();
 
-                if(_currentEvent.type == sf::Event::Closed)
+                if(currentEvent.type == sf::Event::Closed)
                 {
                     _gameState = Game::Exiting;
                 }
 
-                if(_currentEvent.type == sf::Event::KeyPressed)
+                if(currentEvent.type == sf::Event::KeyPressed)
                 {
-                    if(_currentEvent.key.code == sf::Keyboard::Escape) ShowMenu();
+                    if(currentEvent.key.code == sf::Keyboard::Escape) ShowMenu();
                 }
                 
                 break;
@@ -101,7 +101,6 @@ void Game::GameLoop()
             case Game::Paused:
                 break;
         }
-    }
 }
 
 void Game::ShowSplashScreen()
@@ -131,5 +130,3 @@ void Game::ShowMenu()
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
 GameObjectManager Game::_gameObjectManager;
-sf::Clock Game::_clock;
-sf::Event Game::_currentEvent;
