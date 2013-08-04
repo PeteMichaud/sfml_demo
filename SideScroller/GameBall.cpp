@@ -21,7 +21,7 @@ _elapsedTimeSinceStart(0.0f)
     GetSprite().setOrigin(15,15);
 
     std::srand(std::time(0));
-    _angle = (float)(std::rand() / RAND_MAX * 360);
+    _angle = std::rand() % 360 + 1;
 }
 
 GameBall::~GameBall()
@@ -33,15 +33,15 @@ void GameBall::Update(float elapsedTime)
 {
     _elapsedTimeSinceStart += elapsedTime;
 
-    //if (_elapsedTimeSinceStart < 3.0f)
-    //   return;
+    if (_elapsedTimeSinceStart < 3.0f)
+       return;
 
     float moveAmount = _velocity * elapsedTime;
 
     float moveByX = LinearVelocityX(_angle) * moveAmount;
     float moveByY = LinearVelocityY(_angle) * moveAmount;
 
-    //collisde with the left side of the screen
+    //collide with the left side of the screen
     if(GetPosition().x + moveByX <= 0 + GetWidth()/2
        || GetPosition().x + GetHeight()/2 + moveByX >= Game::SCREEN_WIDTH)
     {
@@ -61,6 +61,8 @@ void GameBall::Update(float elapsedTime)
 
         if (p1BB.intersects(GetBoundingRect()))
         {
+            ServiceLocator::GetAudio()->PlaySound("ping.wav");
+
             _angle = 360.0f - (_angle - 180.0f);
             if(_angle > 360.0f) _angle -= 360.0f;
 
@@ -97,7 +99,7 @@ void GameBall::Update(float elapsedTime)
         if (GetPosition().y + GetHeight()/2 + moveByY >= Game::SCREEN_HEIGHT)
         {
             GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
-            _angle = (float)(std::rand() / RAND_MAX * 360);
+            _angle = std::rand() % 360 + 1;
             _velocity = 230.0f;
             _elapsedTimeSinceStart = 0.0f;
         }
