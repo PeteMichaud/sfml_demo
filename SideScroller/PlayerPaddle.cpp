@@ -37,21 +37,18 @@ float PlayerPaddle::GetVelocity() const
 
 void PlayerPaddle::Update(float elapsedTime)
 {
-    sf::Event inputEvent = Game::CurrentEvent();
-    if (inputEvent.type == sf::Event::KeyPressed)
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        if (inputEvent.key.code == sf::Keyboard::Left)
-        {
-            _velocity -= 3.0f;
-        }
-        if (inputEvent.key.code == sf::Keyboard::Right)
-        {
-            _velocity += 3.0f;
-        }
-        if (inputEvent.key.code == sf::Keyboard::Down)
-        {
-            _velocity = 0.0f;
-        }
+        _velocity -= 3.0f;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        _velocity += 3.0f;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        _velocity = 0.0f;
     }
 
     if (_velocity > _maxVelocity)
@@ -62,8 +59,8 @@ void PlayerPaddle::Update(float elapsedTime)
 
     sf::Vector2f pos = this->GetPosition();
 
-    if(pos.x < GetSprite().getGlobalBounds().width / 2
-       || pos.x > (Game::SCREEN_WIDTH - (GetSprite().getGlobalBounds().width / 2)))
+    if(pos.x < GetSprite().getGlobalBounds().width/2
+       || pos.x > (Game::SCREEN_WIDTH - GetSprite().getGlobalBounds().width/2))
     {
         _velocity = -_velocity;
     }
