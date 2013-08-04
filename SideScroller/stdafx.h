@@ -22,3 +22,5 @@
 #include <cmath>
 
 #include "ResourcePath.hpp"
+#include "ServiceLocator.h"
+#include "SFMLSoundProvider.h"
