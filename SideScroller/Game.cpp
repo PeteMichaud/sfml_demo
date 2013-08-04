@@ -57,13 +57,6 @@ sf::RenderWindow& Game::GetWindow()
     return _mainWindow;
 }
 
-const sf::Event& Game::GetInput()
-{
-    sf::Event currentEvent;
-    _mainWindow.pollEvent(currentEvent);
-    return currentEvent;
-}
-
 const GameObjectManager& Game::GameObjects()
 {
     return Game::_gameObjectManager;

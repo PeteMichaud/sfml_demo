@@ -9,6 +9,7 @@
 #pragma once
 #include "stdafx.h"
 #include "PlayerPaddle.h"
+#include "AIPaddle.h"
 #include "GameBall.h"
 #include "GameObjectManager.h"
 
@@ -17,7 +18,6 @@ class Game {
 public:
     static void Start();
     static sf::RenderWindow& GetWindow();
-    static const sf::Event& GetInput();
     static const GameObjectManager& GameObjects();
     const static int SCREEN_WIDTH = 1024;
     const static int SCREEN_HEIGHT = 768;
