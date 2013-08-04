@@ -7,6 +7,7 @@
 //
 
 #include "stdafx.h"
+
 #include "Game.h"
 #include "SplashScreen.h"
 #include "MainMenu.h"
@@ -19,6 +20,11 @@ void Game::Start(void)
     _mainWindow.create(sf::VideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,32), "Pang!");
     //_mainWindow.setFramerateLimit(60);
 
+    SFMLSoundProvider soundProvider;
+    ServiceLocator::RegisterServiceLocator(&soundProvider);
+    std::string m = resourcePath("nice_music.ogg");
+    ServiceLocator::GetAudio()->PlaySong(resourcePath("nice_music.ogg"), true);
+    
     PlayerPaddle *player1 = new PlayerPaddle();
     player1->SetPosition(SCREEN_WIDTH/2, 700);
 
