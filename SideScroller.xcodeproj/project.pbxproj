@@ -19,6 +19,9 @@
 		C11416A017AD816500E545B4 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114169E17AD816500E545B4 /* GameObjectManager.cpp */; };
 		C11416A217ADA8A800E545B4 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C11416A117ADA8A800E545B4 /* ball.png */; };
 		C11416A517ADA8BD00E545B4 /* GameBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416A317ADA8BD00E545B4 /* GameBall.cpp */; };
+		C11416AB17AED0BC00E545B4 /* SFMLSoundProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416A917AED0BB00E545B4 /* SFMLSoundProvider.cpp */; };
+		C11416AE17AED33D00E545B4 /* ServiceLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */; };
+		C11416B217AEDB8000E545B4 /* ping.wav in Resources */ = {isa = PBXBuildFile; fileRef = C11416B117AEDB8000E545B4 /* ping.wav */; };
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C15A389117A5D776002C2764 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C15A389017A5D776002C2764 /* cute_image.jpg */; };
@@ -48,6 +51,12 @@
 		C11416A117ADA8A800E545B4 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		C11416A317ADA8BD00E545B4 /* GameBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBall.cpp; sourceTree = "<group>"; };
 		C11416A417ADA8BD00E545B4 /* GameBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBall.h; sourceTree = "<group>"; };
+		C11416A717AECFFF00E545B4 /* IAudioProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAudioProvider.h; sourceTree = "<group>"; };
+		C11416A917AED0BB00E545B4 /* SFMLSoundProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SFMLSoundProvider.cpp; sourceTree = "<group>"; };
+		C11416AA17AED0BB00E545B4 /* SFMLSoundProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFMLSoundProvider.h; sourceTree = "<group>"; };
+		C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServiceLocator.cpp; sourceTree = "<group>"; };
+		C11416AD17AED33D00E545B4 /* ServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceLocator.h; sourceTree = "<group>"; };
+		C11416B117AEDB8000E545B4 /* ping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ping.wav; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
 		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -110,6 +119,11 @@
 				C11416A417ADA8BD00E545B4 /* GameBall.h */,
 				C15A388F17A5D776002C2764 /* Resources */,
 				C15A388817A5D775002C2764 /* Supporting Files */,
+				C11416A717AECFFF00E545B4 /* IAudioProvider.h */,
+				C11416A917AED0BB00E545B4 /* SFMLSoundProvider.cpp */,
+				C11416AA17AED0BB00E545B4 /* SFMLSoundProvider.h */,
+				C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */,
+				C11416AD17AED33D00E545B4 /* ServiceLocator.h */,
 			);
 			path = SideScroller;
 			sourceTree = "<group>";
@@ -129,6 +143,7 @@
 				C15A389017A5D776002C2764 /* cute_image.jpg */,
 				C15A389217A5D776002C2764 /* nice_music.ogg */,
 				C114169617AD6C0700E545B4 /* paddle.png */,
+				C11416B117AEDB8000E545B4 /* ping.wav */,
 				C114168C17AD5FD600E545B4 /* SplashScreen.png */,
 				C114169417AD668E00E545B4 /* MainMenu.png */,
 				C15A389417A5D776002C2764 /* sansation.ttf */,
@@ -197,6 +212,7 @@
 				C114169517AD668E00E545B4 /* MainMenu.png in Resources */,
 				C114169717AD6C0700E545B4 /* paddle.png in Resources */,
 				C11416A217ADA8A800E545B4 /* ball.png in Resources */,
+				C11416B217AEDB8000E545B4 /* ping.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +249,8 @@
 				C114169D17AD6E1D00E545B4 /* PlayerPaddle.cpp in Sources */,
 				C11416A017AD816500E545B4 /* GameObjectManager.cpp in Sources */,
 				C11416A517ADA8BD00E545B4 /* GameBall.cpp in Sources */,
+				C11416AB17AED0BC00E545B4 /* SFMLSoundProvider.cpp in Sources */,
+				C11416AE17AED33D00E545B4 /* ServiceLocator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
