@@ -41,7 +41,7 @@ void GameBall::Update(float elapsedTime)
     float moveByX = LinearVelocityX(_angle) * moveAmount;
     float moveByY = LinearVelocityY(_angle) * moveAmount;
 
-    //collide with the left side of the screen
+    //collide with the side of the screen
     if(GetPosition().x + moveByX <= 0 + GetWidth()/2
        || GetPosition().x + GetHeight()/2 + moveByX >= Game::SCREEN_WIDTH)
     {
@@ -50,6 +50,22 @@ void GameBall::Update(float elapsedTime)
         if(_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
         if(_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
         moveByX = -moveByX;
+        ServiceLocator::GetAudio()->PlaySound("ping.wav");
+    }
+
+    if (GetPosition().y + moveByY <= 0 + GetHeight()/2)
+    {
+        _angle = 180 - _angle;
+        moveByY = -moveByY;
+        ServiceLocator::GetAudio()->PlaySound("ping.wav");
+    }
+
+    if (GetPosition().y + GetHeight()/2 + moveByY >= Game::SCREEN_HEIGHT)
+    {
+        GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
+        _angle = std::rand() % 360 + 1;
+        _velocity = 230.0f;
+        _elapsedTimeSinceStart = 0.0f;
     }
 
     PlayerPaddle* player1 =
@@ -88,20 +104,6 @@ void GameBall::Update(float elapsedTime)
             }
 
             _velocity += 5.0f;
-        }
-
-        if (GetPosition().y - GetHeight()/2 <= 0)
-        {
-            _angle = 180 - _angle;
-            moveByY = -moveByY;
-        }
-
-        if (GetPosition().y + GetHeight()/2 + moveByY >= Game::SCREEN_HEIGHT)
-        {
-            GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
-            _angle = std::rand() % 360 + 1;
-            _velocity = 230.0f;
-            _elapsedTimeSinceStart = 0.0f;
         }
 
         GetSprite().move(moveByX, moveByY);
