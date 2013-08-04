@@ -23,6 +23,7 @@
 		C11416AE17AED33D00E545B4 /* ServiceLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */; };
 		C11416B217AEDB8000E545B4 /* ping.wav in Resources */ = {isa = PBXBuildFile; fileRef = C11416B117AEDB8000E545B4 /* ping.wav */; };
 		C11416B517AEF4C900E545B4 /* SoundFileCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */; };
+		C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B617AF024400E545B4 /* AIPaddle.cpp */; };
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C15A389117A5D776002C2764 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C15A389017A5D776002C2764 /* cute_image.jpg */; };
@@ -60,6 +61,8 @@
 		C11416B117AEDB8000E545B4 /* ping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ping.wav; sourceTree = "<group>"; };
 		C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundFileCache.cpp; sourceTree = "<group>"; };
 		C11416B417AEF4C800E545B4 /* SoundFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundFileCache.h; sourceTree = "<group>"; };
+		C11416B617AF024400E545B4 /* AIPaddle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIPaddle.cpp; sourceTree = "<group>"; };
+		C11416B717AF024400E545B4 /* AIPaddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPaddle.h; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
 		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				C114168A17AD5D3200E545B4 /* stdafx.h */,
+				C11416B617AF024400E545B4 /* AIPaddle.cpp */,
+				C11416B717AF024400E545B4 /* AIPaddle.h */,
 				C15A388A17A5D775002C2764 /* ResourcePath.mm */,
 				C15A388C17A5D775002C2764 /* ResourcePath.hpp */,
 				C15A388D17A5D775002C2764 /* main.cpp */,
@@ -257,6 +262,7 @@
 				C11416AB17AED0BC00E545B4 /* SFMLSoundProvider.cpp in Sources */,
 				C11416AE17AED33D00E545B4 /* ServiceLocator.cpp in Sources */,
 				C11416B517AEF4C900E545B4 /* SoundFileCache.cpp in Sources */,
+				C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
