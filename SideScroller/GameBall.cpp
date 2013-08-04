@@ -15,7 +15,7 @@ GameBall::GameBall() :
 _velocity(230.0f),
 _elapsedTimeSinceStart(0.0f)
 {
-    Load(resourcePath()+"ball.png");
+    Load(resourcePath("ball.png"));
     assert(IsLoaded());
 
     GetSprite().setOrigin(15,15);
@@ -41,9 +41,11 @@ void GameBall::Update(float elapsedTime)
     float moveByX = LinearVelocityX(_angle) * moveAmount;
     float moveByY = LinearVelocityY(_angle) * moveAmount;
 
+    //collisde with the left side of the screen
     if(GetPosition().x + moveByX <= 0 + GetWidth()/2
        || GetPosition().x + GetHeight()/2 + moveByX >= Game::SCREEN_WIDTH)
     {
+        //Ricochet
         _angle = 360.0f - _angle;
         if(_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
         if(_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
@@ -51,7 +53,7 @@ void GameBall::Update(float elapsedTime)
     }
 
     PlayerPaddle* player1 =
-    dynamic_cast<PlayerPaddle*>(Game::GameObjects().Get("Paddle1"));
+        dynamic_cast<PlayerPaddle*>(Game::GameObjects().Get("Paddle1"));
 
     if (player1 != NULL)
     {
@@ -64,9 +66,10 @@ void GameBall::Update(float elapsedTime)
 
             moveByY = -moveByY;
 
-            if (GetBoundingRect().height + GetBoundingRect().top > player1->GetBoundingRect().top)
+            // Make sure ball isn't inside paddle
+            if (GetBoundingRect().width > player1->GetBoundingRect().top)
             {
-                SetPosition(GetPosition().x, player1->GetBoundingRect().top - GetWidth());
+                SetPosition(GetPosition().x, player1->GetBoundingRect().top - GetWidth()/2 - 1);
             }
 
             float playerVelocity = player1->GetVelocity();
@@ -95,7 +98,7 @@ void GameBall::Update(float elapsedTime)
         {
             GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
             _angle = (float)(std::rand() / RAND_MAX * 360);
-            _velocity = 220.0f;
+            _velocity = 230.0f;
             _elapsedTimeSinceStart = 0.0f;
         }
 
