@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C114168817ACB9F700E545B4 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114168617ACB9F700E545B4 /* Game.cpp */; };
+		C114168B17AD5D3200E545B4 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114168917AD5D3200E545B4 /* stdafx.cpp */; };
+		C114168D17AD5FD600E545B4 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C114168C17AD5FD600E545B4 /* SplashScreen.png */; };
+		C114169017AD5FEC00E545B4 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */; };
+		C114169317AD626B00E545B4 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114169117AD626B00E545B4 /* MainMenu.cpp */; };
+		C114169517AD668E00E545B4 /* MainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = C114169417AD668E00E545B4 /* MainMenu.png */; };
+		C114169717AD6C0700E545B4 /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = C114169617AD6C0700E545B4 /* paddle.png */; };
+		C114169A17AD6C1D00E545B4 /* VisibleGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */; };
+		C114169D17AD6E1D00E545B4 /* PlayerPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114169B17AD6E1D00E545B4 /* PlayerPaddle.cpp */; };
+		C11416A017AD816500E545B4 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C114169E17AD816500E545B4 /* GameObjectManager.cpp */; };
+		C11416A217ADA8A800E545B4 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C11416A117ADA8A800E545B4 /* ball.png */; };
+		C11416A517ADA8BD00E545B4 /* GameBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416A317ADA8BD00E545B4 /* GameBall.cpp */; };
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C15A389117A5D776002C2764 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C15A389017A5D776002C2764 /* cute_image.jpg */; };
@@ -16,6 +28,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C114168617ACB9F700E545B4 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		C114168717ACB9F700E545B4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C114168917AD5D3200E545B4 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		C114168A17AD5D3200E545B4 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		C114168C17AD5FD600E545B4 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
+		C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
+		C114168F17AD5FEC00E545B4 /* SplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreen.h; sourceTree = "<group>"; };
+		C114169117AD626B00E545B4 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
+		C114169217AD626B00E545B4 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		C114169417AD668E00E545B4 /* MainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenu.png; sourceTree = "<group>"; };
+		C114169617AD6C0700E545B4 /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
+		C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleGameObject.cpp; sourceTree = "<group>"; };
+		C114169917AD6C1D00E545B4 /* VisibleGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleGameObject.h; sourceTree = "<group>"; };
+		C114169B17AD6E1D00E545B4 /* PlayerPaddle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerPaddle.cpp; sourceTree = "<group>"; };
+		C114169C17AD6E1D00E545B4 /* PlayerPaddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPaddle.h; sourceTree = "<group>"; };
+		C114169E17AD816500E545B4 /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
+		C114169F17AD816500E545B4 /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectManager.h; sourceTree = "<group>"; };
+		C11416A117ADA8A800E545B4 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		C11416A317ADA8BD00E545B4 /* GameBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBall.cpp; sourceTree = "<group>"; };
+		C11416A417ADA8BD00E545B4 /* GameBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBall.h; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
 		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -57,9 +89,25 @@
 		C15A388717A5D775002C2764 /* SideScroller */ = {
 			isa = PBXGroup;
 			children = (
+				C114168A17AD5D3200E545B4 /* stdafx.h */,
 				C15A388A17A5D775002C2764 /* ResourcePath.mm */,
 				C15A388C17A5D775002C2764 /* ResourcePath.hpp */,
 				C15A388D17A5D775002C2764 /* main.cpp */,
+				C114168917AD5D3200E545B4 /* stdafx.cpp */,
+				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
+				C114169117AD626B00E545B4 /* MainMenu.cpp */,
+				C114169217AD626B00E545B4 /* MainMenu.h */,
+				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
+				C114168617ACB9F700E545B4 /* Game.cpp */,
+				C114168717ACB9F700E545B4 /* Game.h */,
+				C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */,
+				C114169917AD6C1D00E545B4 /* VisibleGameObject.h */,
+				C114169C17AD6E1D00E545B4 /* PlayerPaddle.h */,
+				C114169B17AD6E1D00E545B4 /* PlayerPaddle.cpp */,
+				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
+				C114169F17AD816500E545B4 /* GameObjectManager.h */,
+				C11416A317ADA8BD00E545B4 /* GameBall.cpp */,
+				C11416A417ADA8BD00E545B4 /* GameBall.h */,
 				C15A388F17A5D776002C2764 /* Resources */,
 				C15A388817A5D775002C2764 /* Supporting Files */,
 			);
@@ -77,8 +125,12 @@
 		C15A388F17A5D776002C2764 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C11416A117ADA8A800E545B4 /* ball.png */,
 				C15A389017A5D776002C2764 /* cute_image.jpg */,
 				C15A389217A5D776002C2764 /* nice_music.ogg */,
+				C114169617AD6C0700E545B4 /* paddle.png */,
+				C114168C17AD5FD600E545B4 /* SplashScreen.png */,
+				C114169417AD668E00E545B4 /* MainMenu.png */,
 				C15A389417A5D776002C2764 /* sansation.ttf */,
 				C15A389617A5D776002C2764 /* icon.png */,
 			);
@@ -141,6 +193,10 @@
 				C15A389317A5D776002C2764 /* nice_music.ogg in Resources */,
 				C15A389517A5D776002C2764 /* sansation.ttf in Resources */,
 				C15A389717A5D776002C2764 /* icon.png in Resources */,
+				C114168D17AD5FD600E545B4 /* SplashScreen.png in Resources */,
+				C114169517AD668E00E545B4 /* MainMenu.png in Resources */,
+				C114169717AD6C0700E545B4 /* paddle.png in Resources */,
+				C11416A217ADA8A800E545B4 /* ball.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +225,14 @@
 			files = (
 				C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */,
 				C15A388E17A5D775002C2764 /* main.cpp in Sources */,
+				C114168817ACB9F700E545B4 /* Game.cpp in Sources */,
+				C114168B17AD5D3200E545B4 /* stdafx.cpp in Sources */,
+				C114169017AD5FEC00E545B4 /* SplashScreen.cpp in Sources */,
+				C114169317AD626B00E545B4 /* MainMenu.cpp in Sources */,
+				C114169A17AD6C1D00E545B4 /* VisibleGameObject.cpp in Sources */,
+				C114169D17AD6E1D00E545B4 /* PlayerPaddle.cpp in Sources */,
+				C11416A017AD816500E545B4 /* GameObjectManager.cpp in Sources */,
+				C11416A517ADA8BD00E545B4 /* GameBall.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "SideScroller/SideScroller-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -291,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "SideScroller/SideScroller-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -314,6 +380,7 @@
 				C15A389C17A5D776002C2764 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

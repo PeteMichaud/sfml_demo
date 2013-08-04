@@ -50,3 +50,8 @@ std::string resourcePath(void)
     
     return rpath;
 }
+
+std::string resourcePath(std::string fileName)
+{
+    return resourcePath() + fileName;
+}

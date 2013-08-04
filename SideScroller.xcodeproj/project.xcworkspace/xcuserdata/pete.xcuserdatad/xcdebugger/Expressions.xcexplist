@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Game::Start():Game.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "ball-&gt;GetPosition()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VisibleGameObject::SetPosition(float, float):VisibleGameObject.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_sprite.getPosition()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlayerPaddle::Update(float):PlayerPaddle.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_maxVelocity">
+            </PersistentString>
+            <PersistentString
+               value = "_velocity">
+            </PersistentString>
+            <PersistentString
+               value = "inputEvent.type">
+            </PersistentString>
+            <PersistentString
+               value = "GetSprite().getGlobalBounds().width / 2">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameBall::Update(float):GameBall.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "player1-&gt;GetBoundingRect()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

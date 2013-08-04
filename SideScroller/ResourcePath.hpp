@@ -39,5 +39,5 @@
 ///
 //////////////////////////////////////////////////////////// 
 std::string resourcePath(void);
-
+std::string resourcePath(std::string);
 #endif
