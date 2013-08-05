@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "VisibleGameObject.h"
+#include "Paddle.h"
 
 class GameBall :
     public VisibleGameObject
@@ -18,6 +18,11 @@ public:
     void Update(float);
 
 private:
+    void Set();
+    void Reset();
+    sf::Vector2f CheckWallCollisions(sf::Vector2f moveBy);
+    sf::Vector2f CheckPaddleCollision(sf::Vector2f moveBy, Paddle* object);
+    sf::Vector2f GetMovementVector(float elapsedTime);
     float _velocity;
     float _angle;
     float _elapsedTimeSinceStart;
