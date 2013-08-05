@@ -16,12 +16,18 @@ public:
     Paddle(void);
     ~Paddle(void);
 
-    virtual void Update(float elapasedTime) = 0;
+    void Update(float elapasedTime);
     void Draw(sf::RenderWindow& rw);
+    virtual void HandleInput() = 0;
 
     float GetVelocity() const;
 
 protected:
     float _velocity;
     float _maxVelocity;
+    void ClampVelocity();
+    void WallCollision();
+
+private:
+    float ClampToScreen(float x);
 };

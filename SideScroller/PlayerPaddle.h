@@ -13,5 +13,5 @@ class PlayerPaddle :
     public Paddle
 {
 public:
-    void Update(float elapsedTime);
+    void HandleInput();
 };

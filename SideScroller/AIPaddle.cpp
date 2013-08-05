@@ -11,7 +11,7 @@
 #include "Game.h"
 #include "GameBall.h"
 
-void AIPaddle::Update(float elapsedTime)
+void AIPaddle::HandleInput()
 {
     const GameBall* gameBall = static_cast<GameBall*>
     (Game::GameObjects().Get("Ball"));
@@ -24,20 +24,4 @@ void AIPaddle::Update(float elapsedTime)
         _velocity -= 15.0f;
     else
         _velocity = 0.0f;
-    
-    if (_velocity > _maxVelocity)
-        _velocity = _maxVelocity;
-
-    if (_velocity < -_maxVelocity)
-        _velocity = -_maxVelocity;
-
-    sf::Vector2f pos = this->GetPosition();
-
-    if(pos.x < GetSprite().getGlobalBounds().width/2
-       || pos.x > (Game::SCREEN_WIDTH - GetSprite().getGlobalBounds().width/2))
-    {
-        _velocity = -_velocity;
-    }
-
-    GetSprite().move(_velocity * elapsedTime, 0);
 }

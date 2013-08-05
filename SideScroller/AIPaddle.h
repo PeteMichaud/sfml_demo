@@ -13,5 +13,5 @@ class AIPaddle :
     public Paddle
 {
 public:
-    void Update(float elapasedTime);
+    void HandleInput();
 };
