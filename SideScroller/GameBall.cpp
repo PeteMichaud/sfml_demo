@@ -15,8 +15,12 @@ GameBall::GameBall() :
 _velocity(230.0f),
 _elapsedTimeSinceStart(0.0f)
 {
-    Load(resourcePath("ball.png"));
+    Load(resourcePath("sphere.png"));
     assert(IsLoaded());
+
+    _sphereShader.loadFromFile(
+        resourcePath("Shaders/sphere.vert"),
+        resourcePath("Shaders/sphere.frag"));
 
     Set();
 }
@@ -45,7 +49,15 @@ void GameBall::Update(float elapsedTime)
     moveBy = CheckPaddleCollision(moveBy, (Paddle*)player1);
     moveBy = CheckPaddleCollision(moveBy, (Paddle*)player2);
 
+    _sphereShader.setParameter("pos", GetPosition());
+    _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
+
     GetSprite().move(moveBy);
+}
+
+void GameBall::Draw(sf::RenderWindow& renderWindow)
+{
+    renderWindow.draw(GetSprite(), &_sphereShader);
 }
 
 float GameBall::LinearVelocityX(float angle)

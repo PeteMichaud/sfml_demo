@@ -16,7 +16,7 @@ public:
     GameBall();
     virtual ~GameBall();
     void Update(float);
-
+    void Draw(sf::RenderWindow&);
 private:
     void Set();
     void Reset();
@@ -31,4 +31,6 @@ private:
     float LinearVelocityY(float angle);
 
     sf::Color RandomColor();
+
+    sf::Shader _sphereShader;
 };
