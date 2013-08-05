@@ -105,6 +105,9 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
 
     if (GetPosition().y + GetHeight()/2 + moveBy.y >= Game::SCREEN_HEIGHT)
     {
+        Paddle* player1 =
+        dynamic_cast<Paddle*>(Game::GameObjects().Get("Paddle1"));
+        player1->Whittle(-5.0f);
         Reset();
     }
 
@@ -119,6 +122,7 @@ sf::Vector2f GameBall::CheckPaddleCollision(sf::Vector2f moveBy, Paddle* paddle)
         {
             ServiceLocator::GetAudio()->PlaySound("ping.wav");
             paddle->SetColor(RandomColor());
+            paddle->Whittle();
             _angle = 360.0f - (_angle - 180.0f);
             if(_angle > 360.0f) _angle -= 360.0f;
 
