@@ -22,6 +22,8 @@ public:
 
     float GetVelocity() const;
 
+    void SetColor(const sf::Color color);
+
 protected:
     float _velocity;
     float _maxVelocity;

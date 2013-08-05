@@ -40,6 +40,7 @@ void VisibleGameObject::Draw(sf::RenderWindow & renderWindow)
     {
         renderWindow.draw(_sprite);
     }
+    renderWindow.draw(_rect);
 }
 
 void VisibleGameObject::Update(float elapsedTime)
@@ -53,6 +54,7 @@ void VisibleGameObject::SetPosition(float x, float y)
     {
         _sprite.setPosition(x,y);
     }
+    _rect.setPosition(x,y);
 }
 
 sf::Vector2f VisibleGameObject::GetPosition() const
@@ -61,7 +63,7 @@ sf::Vector2f VisibleGameObject::GetPosition() const
     {
         return _sprite.getPosition();
     }
-    return sf::Vector2f();
+    return _rect.getPosition();
 }
 
 sf::Sprite& VisibleGameObject::GetSprite()
@@ -69,19 +71,37 @@ sf::Sprite& VisibleGameObject::GetSprite()
     return _sprite;
 }
 
+sf::RectangleShape& VisibleGameObject::GetRect()
+{
+    return _rect;
+}
+
 float VisibleGameObject::GetHeight() const
 {
-    return _sprite.getGlobalBounds().height;
+    if (_isLoaded)
+    {
+        return _sprite.getGlobalBounds().height;
+    }
+    return _rect.getGlobalBounds().height;
 }
 
 float VisibleGameObject::GetWidth() const
 {
-    return _sprite.getGlobalBounds().width;
+    if (_isLoaded)
+    {
+        return _sprite.getGlobalBounds().width;
+    }
+
+    return _rect.getGlobalBounds().width;
 }
 
 sf::FloatRect VisibleGameObject::GetBoundingRect() const
 {
-    return _sprite.getGlobalBounds();
+    if (_isLoaded)
+    {
+        return _sprite.getGlobalBounds();
+    }
+    return _rect.getGlobalBounds();
 }
 
 bool VisibleGameObject::IsLoaded() const

@@ -30,8 +30,11 @@ public:
 
 protected:
     sf::Sprite& GetSprite();
+    sf::RectangleShape& GetRect();
+
 
 private:
+    sf::RectangleShape _rect;
     sf::Sprite _sprite;
     sf::Texture _texture;
     std::string _fileName;

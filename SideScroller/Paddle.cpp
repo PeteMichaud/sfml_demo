@@ -15,10 +15,16 @@ Paddle::Paddle() :
 _velocity(0),
 _maxVelocity(600.0f)
 {
-    Load(resourcePath("paddle.png"));
-    assert(IsLoaded());
+    //Load(resourcePath("paddle.png"));
+    //assert(IsLoaded());
 
-    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
+//    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
+
+    GetRect().setSize(sf::Vector2f(100,30));
+    GetRect().setFillColor(sf::Color::Green);
+    GetRect().setOrigin(
+        GetRect().getGlobalBounds().width / 2,
+        GetRect().getGlobalBounds().height / 2);
 }
 
 Paddle::~Paddle()
@@ -44,7 +50,7 @@ void Paddle::Update(float elapsedTime)
 
     WallCollision();
 
-    GetSprite().move(_velocity * elapsedTime, 0);
+    GetRect().move(_velocity * elapsedTime, 0);
 }
 
 void Paddle::ClampVelocity()
@@ -60,8 +66,8 @@ void Paddle::WallCollision()
 {
     sf::Vector2f pos = this->GetPosition();
 
-    if(pos.x < GetSprite().getGlobalBounds().width/2
-       || pos.x > (Game::SCREEN_WIDTH - GetSprite().getGlobalBounds().width/2))
+    if(pos.x < GetRect().getGlobalBounds().width/2
+       || pos.x > (Game::SCREEN_WIDTH - GetRect().getGlobalBounds().width/2))
     {
         SetPosition(ClampToScreen(pos.x), pos.y);
         _velocity = -_velocity;
@@ -71,6 +77,11 @@ void Paddle::WallCollision()
 float Paddle::ClampToScreen(float x)
 {
     return clamp(x,
-        GetSprite().getGlobalBounds().width/2,
-        (Game::SCREEN_WIDTH - GetSprite().getGlobalBounds().width/2));
+        GetRect().getGlobalBounds().width/2,
+        (Game::SCREEN_WIDTH - GetRect().getGlobalBounds().width/2));
+}
+
+void Paddle::SetColor(sf::Color color)
+{
+    GetRect().setFillColor(color);
 }

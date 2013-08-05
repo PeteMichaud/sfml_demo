@@ -115,36 +115,31 @@ sf::Vector2f GameBall::CheckPaddleCollision(sf::Vector2f moveBy, Paddle* paddle)
 {
     if (paddle != NULL)
     {
-        sf::FloatRect intersection = *new sf::FloatRect();
-        if (paddle->GetBoundingRect().intersects(GetBoundingRect(), intersection))
+        if (paddle->GetBoundingRect().intersects(GetBoundingRect()))
         {
             ServiceLocator::GetAudio()->PlaySound("ping.wav");
-
+            paddle->SetColor(RandomColor());
             _angle = 360.0f - (_angle - 180.0f);
             if(_angle > 360.0f) _angle -= 360.0f;
 
             moveBy.y = -moveBy.y;
 
-            // Make sure ball isn't inside paddle
-            //if (GetBoundingRect().height > paddle->GetBoundingRect().top)
+            float newY;
+            if (GetPosition().y < Game::SCREEN_HEIGHT/2)
             {
-                float newY;
-                if (GetPosition().y < Game::SCREEN_HEIGHT/2)
-                {
-                    newY = paddle->GetBoundingRect().top
-                            + paddle->GetHeight()
-                            + (GetHeight()/2)
-                            + 1;
-                }
-                else
-                {
-                    newY = paddle->GetBoundingRect().top
-                            //- (paddle->GetHeight()/2)
-                            - (GetHeight()/2)
-                            - 1;
-                }
-                SetPosition(GetPosition().x,newY);
+                newY = paddle->GetBoundingRect().top
+                        + paddle->GetHeight()
+                        + (GetHeight()/2)
+                        + 1;
             }
+            else
+            {
+                newY = paddle->GetBoundingRect().top
+                        //- (paddle->GetHeight()/2)
+                        - (GetHeight()/2)
+                        - 1;
+            }
+            SetPosition(GetPosition().x,newY);
 
             float objectVelocity = paddle->GetVelocity();
 
@@ -173,4 +168,14 @@ sf::Vector2f GameBall::GetMovementVector(float elapsedTime)
     return *new sf::Vector2f(
         LinearVelocityX(_angle) * moveAmount,
         LinearVelocityY(_angle) * moveAmount);
+}
+
+sf::Color GameBall::RandomColor()
+{
+    std::srand(std::time(0));
+    int r = std::rand() % 255;
+    int g = std::rand() % 255;
+    int b = std::rand() % 255;
+
+    return sf::Color(r,g,b);
 }
