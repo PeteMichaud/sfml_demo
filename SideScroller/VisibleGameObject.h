@@ -32,11 +32,11 @@ protected:
     sf::Sprite& GetSprite();
     sf::RectangleShape& GetRect();
     sf::Text DebugText(std::string msg, sf::Vector2f pos);
+    sf::Texture _texture;
 
 private:
     sf::RectangleShape _rect;
     sf::Sprite _sprite;
-    sf::Texture _texture;
     std::string _fileName;
     bool _isLoaded;
     sf::Font _font;
