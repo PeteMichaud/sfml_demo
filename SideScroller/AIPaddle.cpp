@@ -11,31 +11,6 @@
 #include "Game.h"
 #include "GameBall.h"
 
-AIPaddle::AIPaddle() :
-_velocity(0),
-_maxVelocity(600.0f)
-{
-    Load(resourcePath("paddle.png"));
-    assert(IsLoaded());
-
-    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
-}
-
-AIPaddle::~AIPaddle()
-{
-
-}
-
-void AIPaddle::Draw(sf::RenderWindow& rw)
-{
-    VisibleGameObject::Draw(rw);
-}
-
-float AIPaddle::GetVelocity() const
-{
-    return _velocity;
-}
-
 void AIPaddle::Update(float elapsedTime)
 {
     const GameBall* gameBall = static_cast<GameBall*>

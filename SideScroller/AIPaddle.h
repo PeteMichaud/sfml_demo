@@ -7,21 +7,11 @@
 //
 
 #pragma once
-#include "VisibleGameObject.h"
+#include "Paddle.h"
 
 class AIPaddle :
-    public VisibleGameObject
+    public Paddle
 {
 public:
-    AIPaddle(void);
-    ~AIPaddle(void);
-
     void Update(float elapasedTime);
-    void Draw(sf::RenderWindow& rw);
-
-    float GetVelocity() const;
-
-private:
-    float _velocity;
-    float _maxVelocity;
 };

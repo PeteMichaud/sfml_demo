@@ -10,31 +10,6 @@
 #include "PlayerPaddle.h"
 #include "Game.h"
 
-PlayerPaddle::PlayerPaddle() :
-_velocity(0),
-_maxVelocity(600.0f)
-{
-    Load(resourcePath("paddle.png"));
-    assert(IsLoaded());
-
-    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
-}
-
-PlayerPaddle::~PlayerPaddle()
-{
-    
-}
-
-void PlayerPaddle::Draw(sf::RenderWindow& rw)
-{
-    VisibleGameObject::Draw(rw);
-}
-
-float PlayerPaddle::GetVelocity() const
-{
-    return _velocity;
-}
-
 void PlayerPaddle::Update(float elapsedTime)
 {
 
