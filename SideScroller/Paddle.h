@@ -23,7 +23,7 @@ public:
     float GetVelocity() const;
 
     void SetColor(const sf::Color color);
-
+    void Whittle(float amount = 5.0f);
 protected:
     float _velocity;
     float _maxVelocity;

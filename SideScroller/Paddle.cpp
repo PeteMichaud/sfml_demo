@@ -20,7 +20,7 @@ _maxVelocity(600.0f)
 
 //    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
 
-    GetRect().setSize(sf::Vector2f(100,30));
+    GetRect().setSize(sf::Vector2f(300,30));
     GetRect().setFillColor(sf::Color::Green);
     GetRect().setOrigin(
         GetRect().getGlobalBounds().width / 2,
@@ -84,4 +84,13 @@ float Paddle::ClampToScreen(float x)
 void Paddle::SetColor(sf::Color color)
 {
     GetRect().setFillColor(color);
+}
+
+void Paddle::Whittle(float amount)
+{
+    sf::Vector2f currentSize = GetRect().getSize();
+    GetRect().setSize(sf::Vector2f(
+        currentSize.x - amount,
+        currentSize.y
+        ));
 }
