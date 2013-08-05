@@ -32,4 +32,5 @@ protected:
 
 private:
     float ClampToScreen(float x);
+    void CenterOrigin();
 };

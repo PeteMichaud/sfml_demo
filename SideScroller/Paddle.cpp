@@ -10,6 +10,7 @@
 #include "Paddle.h"
 #include "Game.h"
 #include "mathhelpers.h"
+#include "stringhelpers.h"
 
 Paddle::Paddle() :
 _velocity(0),
@@ -22,9 +23,7 @@ _maxVelocity(600.0f)
 
     GetRect().setSize(sf::Vector2f(300,30));
     GetRect().setFillColor(sf::Color::Green);
-    GetRect().setOrigin(
-        GetRect().getGlobalBounds().width / 2,
-        GetRect().getGlobalBounds().height / 2);
+    CenterOrigin();
 }
 
 Paddle::~Paddle()
@@ -35,6 +34,18 @@ Paddle::~Paddle()
 void Paddle::Draw(sf::RenderWindow& rw)
 {
     VisibleGameObject::Draw(rw);
+    std::string strCoords =
+        "(" + zero_pad(GetPosition().x) + "," + zero_pad(GetPosition().y) + ")";
+    rw.draw(DebugText(
+        strCoords,
+        sf::Vector2f(50,GetPosition().y + GetHeight())));
+
+    std::string strSize =
+    "(" + to_s(GetWidth()) + "," + to_s(GetHeight()) + ")";
+    rw.draw(DebugText(
+        strSize,
+        sf::Vector2f(50,GetPosition().y + GetHeight()*1.5)));
+
 }
 
 float Paddle::GetVelocity() const
@@ -93,4 +104,13 @@ void Paddle::Whittle(float amount)
         currentSize.x - amount,
         currentSize.y
         ));
+    CenterOrigin();
+}
+
+void Paddle::CenterOrigin()
+{
+
+    GetRect().setOrigin(
+        GetRect().getGlobalBounds().width / 2,
+        GetRect().getGlobalBounds().height / 2);
 }
