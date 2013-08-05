@@ -38,9 +38,8 @@ sf::Sound SoundFileCache::GetSound(std::string soundName) const
                 soundName + " was not found in call to SoundFileCache::GetSound");
         }
 
-        std::map<std::string, sf::SoundBuffer*>::iterator res =
-            _sounds.insert(std::pair<std::string, sf::SoundBuffer*>
-                (soundName,soundBuffer)).first;
+        _sounds.insert(std::pair<std::string, sf::SoundBuffer*>
+            (soundName,soundBuffer));
 
         sf::Sound sound;
         sound.setBuffer(*soundBuffer);
