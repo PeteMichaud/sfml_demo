@@ -12,6 +12,7 @@
 VisibleGameObject::VisibleGameObject()
 :_isLoaded(false)
 {
+    _font.loadFromFile(resourcePath("Consolas.ttf"));
 }
 
 VisibleGameObject::~VisibleGameObject()
@@ -107,4 +108,13 @@ sf::FloatRect VisibleGameObject::GetBoundingRect() const
 bool VisibleGameObject::IsLoaded() const
 {
     return _isLoaded;
+}
+
+sf::Text VisibleGameObject::DebugText(std::string msg, sf::Vector2f pos)
+{
+    sf::Text text(msg, _font);
+    text.setCharacterSize(15);
+    text.setColor(sf::Color::White);
+    text.setPosition(pos);
+    return text;
 }

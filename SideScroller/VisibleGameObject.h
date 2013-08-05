@@ -31,7 +31,7 @@ public:
 protected:
     sf::Sprite& GetSprite();
     sf::RectangleShape& GetRect();
-
+    sf::Text DebugText(std::string msg, sf::Vector2f pos);
 
 private:
     sf::RectangleShape _rect;
@@ -39,4 +39,5 @@ private:
     sf::Texture _texture;
     std::string _fileName;
     bool _isLoaded;
+    sf::Font _font;
 };
