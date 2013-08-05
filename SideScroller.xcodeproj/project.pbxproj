@@ -25,6 +25,7 @@
 		C11416B517AEF4C900E545B4 /* SoundFileCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */; };
 		C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B617AF024400E545B4 /* AIPaddle.cpp */; };
 		C11416BB17AF1BA500E545B4 /* Paddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B917AF1BA500E545B4 /* Paddle.cpp */; };
+		C11416BF17AFF8A800E545B4 /* Consolas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11416BE17AFF8A800E545B4 /* Consolas.ttf */; };
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C15A389117A5D776002C2764 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C15A389017A5D776002C2764 /* cute_image.jpg */; };
@@ -67,6 +68,8 @@
 		C11416B917AF1BA500E545B4 /* Paddle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Paddle.cpp; sourceTree = "<group>"; };
 		C11416BA17AF1BA500E545B4 /* Paddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		C11416BC17AF2DD000E545B4 /* mathhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mathhelpers.h; sourceTree = "<group>"; };
+		C11416BD17AFF12500E545B4 /* stringhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringhelpers.h; sourceTree = "<group>"; };
+		C11416BE17AFF8A800E545B4 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
 		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 				C11416B917AF1BA500E545B4 /* Paddle.cpp */,
 				C11416BA17AF1BA500E545B4 /* Paddle.h */,
 				C11416BC17AF2DD000E545B4 /* mathhelpers.h */,
+				C11416BD17AFF12500E545B4 /* stringhelpers.h */,
 			);
 			path = SideScroller;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 				C15A389017A5D776002C2764 /* cute_image.jpg */,
 				C15A389217A5D776002C2764 /* nice_music.ogg */,
 				C114169617AD6C0700E545B4 /* paddle.png */,
+				C11416BE17AFF8A800E545B4 /* Consolas.ttf */,
 				C11416B117AEDB8000E545B4 /* ping.wav */,
 				C114168C17AD5FD600E545B4 /* SplashScreen.png */,
 				C114169417AD668E00E545B4 /* MainMenu.png */,
@@ -230,6 +235,7 @@
 				C114169717AD6C0700E545B4 /* paddle.png in Resources */,
 				C11416A217ADA8A800E545B4 /* ball.png in Resources */,
 				C11416B217AEDB8000E545B4 /* ping.wav in Resources */,
+				C11416BF17AFF8A800E545B4 /* Consolas.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
