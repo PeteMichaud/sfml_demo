@@ -15,13 +15,13 @@ GameBall::GameBall() :
 _velocity(230.0f),
 _elapsedTimeSinceStart(0.0f)
 {
-    Load(resourcePath("sphere.png"));
+    Load(resourcePath("sphere2.png"));
     assert(IsLoaded());
 
     _sphereShader.loadFromFile(
-        // resourcePath("sphere.vert"),
-        resourcePath("sphere.frag"),
-        sf::Shader::Fragment);
+         resourcePath("sphere.vert"),
+         resourcePath("sphere.frag"));
+        //sf::Shader::Fragment);
     _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
     
     Set();
