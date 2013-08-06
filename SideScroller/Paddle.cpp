@@ -34,17 +34,17 @@ Paddle::~Paddle()
 void Paddle::Draw(sf::RenderWindow& rw)
 {
     VisibleGameObject::Draw(rw);
-    std::string strCoords =
-        "(" + zero_pad(GetPosition().x) + "," + zero_pad(GetPosition().y) + ")";
-    rw.draw(DebugText(
-        strCoords,
-        sf::Vector2f(50,GetPosition().y + GetHeight())));
-
-    std::string strSize =
-    "(" + to_s(GetWidth()) + "," + to_s(GetHeight()) + ")";
-    rw.draw(DebugText(
-        strSize,
-        sf::Vector2f(50,GetPosition().y + GetHeight()*1.5)));
+//    std::string strCoords =
+//        "(" + zero_pad(GetPosition().x) + "," + zero_pad(GetPosition().y) + ")";
+//    rw.draw(DebugText(
+//        strCoords,
+//        sf::Vector2f(50,GetPosition().y + GetHeight())));
+//
+//    std::string strSize =
+//    "(" + to_s(GetWidth()) + "," + to_s(GetHeight()) + ")";
+//    rw.draw(DebugText(
+//        strSize,
+//        sf::Vector2f(50,GetPosition().y + GetHeight()*1.5)));
 
 }
 
