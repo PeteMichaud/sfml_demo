@@ -15,6 +15,8 @@ GameBall::GameBall() :
 _velocity(230.0f),
 _elapsedTimeSinceStart(0.0f)
 {
+    _centerScreen = sf::Vector2f(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
+
     Load(resourcePath("sphere3.png"));
     assert(IsLoaded());
 
@@ -23,13 +25,31 @@ _elapsedTimeSinceStart(0.0f)
          resourcePath("sphere.frag"));
         //sf::Shader::Fragment);
     _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
-    
+
+    GetSprite().setPosition(_centerScreen);
+
+    LoadShadows();
+
     Set();
 }
 
 GameBall::~GameBall()
 {
     
+}
+
+void GameBall::LoadShadows()
+{
+    _shadowSmallTexture.loadFromFile(resourcePath("ball_shadow_small.png"));
+    _shadowSmall.setTexture(_shadowSmallTexture);
+    _shadowBigTexture.loadFromFile(resourcePath("ball_shadow_big.png"));
+    _shadowBig.setTexture(_shadowBigTexture);
+
+    _shadowSmall.setOrigin(30,30);
+    _shadowBig.setOrigin(30,30);
+
+    _shadowSmall.setPosition(ShadowOffset(1.015));
+    _shadowBig.setPosition(ShadowOffset(1.03));
 }
 
 void GameBall::Update(float elapsedTime)
@@ -54,10 +74,14 @@ void GameBall::Update(float elapsedTime)
     _sphereShader.setParameter("pos", GetPosition());
     
     GetSprite().move(moveBy);
+    _shadowSmall.setPosition(ShadowOffset(1.015));
+    _shadowBig.setPosition(ShadowOffset(1.03));
 }
 
 void GameBall::Draw(sf::RenderWindow& renderWindow)
 {
+    renderWindow.draw(_shadowBig);
+    renderWindow.draw(_shadowSmall);
     renderWindow.draw(GetSprite(), &_sphereShader);
 }
 
@@ -195,4 +219,12 @@ sf::Color GameBall::RandomColor()
     int b = std::rand() % 255;
 
     return sf::Color(r,g,b);
+}
+
+sf::Vector2f GameBall::ShadowOffset(float magnitude)
+{
+    sf::Vector2f relative =
+        (GetSprite().getPosition() - _centerScreen) * magnitude;
+
+    return relative + _centerScreen;
 }

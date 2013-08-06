@@ -33,4 +33,14 @@ private:
     sf::Color RandomColor();
 
     sf::Shader _sphereShader;
+
+    void LoadShadows();
+    sf::Sprite _shadowSmall;
+    sf::Sprite _shadowBig;
+    sf::Texture _shadowSmallTexture;
+    sf::Texture _shadowBigTexture;
+
+    sf::Vector2f ShadowOffset(float magnitude);
+
+    sf::Vector2f _centerScreen;
 };
