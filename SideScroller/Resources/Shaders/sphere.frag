@@ -11,7 +11,7 @@ void main(void)
     //warp the texture to appear spherical
     float f = (1.0-sqrt(1.0-r))/(r);
     vec2 uv;
-    uv.x = fract(p.x*f - pos.x/1024.0*10.0);
-    uv.y = fract(p.y*f - pos.y/768.0*10.0);
+    uv.x = fract(p.x*f - pos.x/1024.0*9.55); //30px / pi = ~9.55
+    uv.y = fract(p.y*f - pos.y/768.0*9.55);
     gl_FragColor = vec4(texture2D(tex0,uv).xyz, 1.0);
 }
