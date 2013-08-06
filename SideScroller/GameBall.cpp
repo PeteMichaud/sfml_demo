@@ -11,6 +11,7 @@
 #include "GameBall.h"
 #include "Game.h"
 #include "stringhelpers.h"
+#include "mathhelpers.h"
 
 GameBall::GameBall() :
 _velocity(330.0f),
@@ -24,14 +25,11 @@ _elapsedTimeSinceStart(0.0f)
     _sphereShader.loadFromFile(
          resourcePath("sphere.vert"),
          resourcePath("sphere.frag"));
-        //sf::Shader::Fragment);
     _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
 
-    GetSprite().setPosition(_centerScreen);
+    Set();
 
     LoadShadows();
-
-    Set();
 }
 
 GameBall::~GameBall()
@@ -108,10 +106,10 @@ void GameBall::Set()
         GetSprite().getGlobalBounds().width/2,
         GetSprite().getGlobalBounds().height/2);
 
-    GetSprite().setPosition(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
+    GetSprite().setPosition(_centerScreen);
 
     std::srand(std::time(0));
-    _angle = std::rand() % 360 + 1;
+    _angle = randf(360);
     _velocity = 330.0f;
 }
 
