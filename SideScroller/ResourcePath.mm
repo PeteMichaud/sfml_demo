@@ -30,7 +30,7 @@
 #import <Foundation/Foundation.h>
 
 std::vector<std::string> imageExtensions {"jpg", "png"};
-std::vector<std::string> soundExtensions {"ogg", "mp3", "wav"};
+std::vector<std::string> soundExtensions {"ogg", "wav"};
 std::vector<std::string> shaderExtensions {"vert", "frag"};
 std::vector<std::string> fontExtensions{"ttf"};
 
