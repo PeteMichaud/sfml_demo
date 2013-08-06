@@ -19,9 +19,11 @@ _elapsedTimeSinceStart(0.0f)
     assert(IsLoaded());
 
     _sphereShader.loadFromFile(
-        resourcePath("Shaders/sphere.vert"),
-        resourcePath("Shaders/sphere.frag"));
-
+        // resourcePath("sphere.vert"),
+        resourcePath("sphere.frag"),
+        sf::Shader::Fragment);
+    _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
+    
     Set();
 }
 
@@ -50,8 +52,7 @@ void GameBall::Update(float elapsedTime)
     moveBy = CheckPaddleCollision(moveBy, (Paddle*)player2);
 
     _sphereShader.setParameter("pos", GetPosition());
-    _sphereShader.setParameter("tex0", sf::Shader::CurrentTexture);
-
+    
     GetSprite().move(moveBy);
 }
 
