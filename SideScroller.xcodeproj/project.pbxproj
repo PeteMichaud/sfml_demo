@@ -29,8 +29,8 @@
 /* Begin PBXFileReference section */
 		C114168617ACB9F700E545B4 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		C114168717ACB9F700E545B4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		C114168917AD5D3200E545B4 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
-		C114168A17AD5D3200E545B4 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		C114168917AD5D3200E545B4 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = SideScroller/stdafx.cpp; sourceTree = "<group>"; };
+		C114168A17AD5D3200E545B4 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = SideScroller/stdafx.h; sourceTree = "<group>"; };
 		C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
 		C114168F17AD5FEC00E545B4 /* SplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreen.h; sourceTree = "<group>"; };
 		C114169117AD626B00E545B4 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
@@ -54,14 +54,14 @@
 		C11416B717AF024400E545B4 /* AIPaddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPaddle.h; sourceTree = "<group>"; };
 		C11416B917AF1BA500E545B4 /* Paddle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Paddle.cpp; sourceTree = "<group>"; };
 		C11416BA17AF1BA500E545B4 /* Paddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
-		C11416BC17AF2DD000E545B4 /* mathhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mathhelpers.h; sourceTree = "<group>"; };
-		C11416BD17AFF12500E545B4 /* stringhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringhelpers.h; sourceTree = "<group>"; };
+		C11416BC17AF2DD000E545B4 /* mathhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mathhelpers.h; path = SideScroller/mathhelpers.h; sourceTree = "<group>"; };
+		C11416BD17AFF12500E545B4 /* stringhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stringhelpers.h; path = SideScroller/stringhelpers.h; sourceTree = "<group>"; };
 		C1415BFD17B1871000918E6C /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		C1415BFE17B1871000918E6C /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
-		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		C15A388C17A5D775002C2764 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePath.mm; path = SideScroller/ResourcePath.mm; sourceTree = "<group>"; };
+		C15A388C17A5D775002C2764 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = SideScroller/ResourcePath.hpp; sourceTree = "<group>"; };
 		C15A388D17A5D775002C2764 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C16FEC8117B06E4F00E669C6 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +77,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1415C0017B1B62900918E6C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C114168917AD5D3200E545B4 /* stdafx.cpp */,
+				C114168A17AD5D3200E545B4 /* stdafx.h */,
+				C15A388A17A5D775002C2764 /* ResourcePath.mm */,
+				C15A388C17A5D775002C2764 /* ResourcePath.hpp */,
+				C11416BC17AF2DD000E545B4 /* mathhelpers.h */,
+				C11416BD17AFF12500E545B4 /* stringhelpers.h */,
+			);
+			name = Helpers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C1415C0117B1B64600918E6C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C11416A717AECFFF00E545B4 /* IAudioProvider.h */,
+				C11416A917AED0BB00E545B4 /* SFMLSoundProvider.cpp */,
+				C11416AA17AED0BB00E545B4 /* SFMLSoundProvider.h */,
+				C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */,
+				C11416AD17AED33D00E545B4 /* ServiceLocator.h */,
+				C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */,
+				C11416B417AEF4C800E545B4 /* SoundFileCache.h */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		C1415C0217B1B6A300918E6C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C114169117AD626B00E545B4 /* MainMenu.cpp */,
+				C114169217AD626B00E545B4 /* MainMenu.h */,
+				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
+				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		C1415C0317B1B6D800918E6C /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				C1415C0417B1B71600918E6C /* Paddles */,
+				C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */,
+				C114169917AD6C1D00E545B4 /* VisibleGameObject.h */,
+				C11416A317ADA8BD00E545B4 /* GameBall.cpp */,
+				C11416A417ADA8BD00E545B4 /* GameBall.h */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
+		C1415C0417B1B71600918E6C /* Paddles */ = {
+			isa = PBXGroup;
+			children = (
+				C11416B617AF024400E545B4 /* AIPaddle.cpp */,
+				C11416B717AF024400E545B4 /* AIPaddle.h */,
+				C114169B17AD6E1D00E545B4 /* PlayerPaddle.cpp */,
+				C114169C17AD6E1D00E545B4 /* PlayerPaddle.h */,
+				C11416B917AF1BA500E545B4 /* Paddle.cpp */,
+				C11416BA17AF1BA500E545B4 /* Paddle.h */,
+			);
+			name = Paddles;
+			sourceTree = "<group>";
+		};
 		C15A387B17A5D775002C2764 = {
 			isa = PBXGroup;
 			children = (
@@ -96,41 +160,18 @@
 		C15A388717A5D775002C2764 /* SideScroller */ = {
 			isa = PBXGroup;
 			children = (
-				C114168A17AD5D3200E545B4 /* stdafx.h */,
-				C11416B617AF024400E545B4 /* AIPaddle.cpp */,
-				C11416B717AF024400E545B4 /* AIPaddle.h */,
-				C15A388A17A5D775002C2764 /* ResourcePath.mm */,
-				C15A388C17A5D775002C2764 /* ResourcePath.hpp */,
+				C1415C0317B1B6D800918E6C /* GameObjects */,
+				C1415C0217B1B6A300918E6C /* Screens */,
+				C1415C0017B1B62900918E6C /* Helpers */,
+				C1415C0117B1B64600918E6C /* Services */,
 				C15A388D17A5D775002C2764 /* main.cpp */,
-				C114168917AD5D3200E545B4 /* stdafx.cpp */,
-				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
-				C114169117AD626B00E545B4 /* MainMenu.cpp */,
-				C114169217AD626B00E545B4 /* MainMenu.h */,
-				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
 				C1415BFD17B1871000918E6C /* Camera.cpp */,
 				C1415BFE17B1871000918E6C /* Camera.h */,
 				C114168617ACB9F700E545B4 /* Game.cpp */,
 				C114168717ACB9F700E545B4 /* Game.h */,
-				C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */,
-				C114169917AD6C1D00E545B4 /* VisibleGameObject.h */,
-				C114169C17AD6E1D00E545B4 /* PlayerPaddle.h */,
-				C114169B17AD6E1D00E545B4 /* PlayerPaddle.cpp */,
 				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
 				C114169F17AD816500E545B4 /* GameObjectManager.h */,
-				C11416A317ADA8BD00E545B4 /* GameBall.cpp */,
-				C11416A417ADA8BD00E545B4 /* GameBall.h */,
 				C15A388817A5D775002C2764 /* Supporting Files */,
-				C11416A717AECFFF00E545B4 /* IAudioProvider.h */,
-				C11416A917AED0BB00E545B4 /* SFMLSoundProvider.cpp */,
-				C11416AA17AED0BB00E545B4 /* SFMLSoundProvider.h */,
-				C11416AC17AED33D00E545B4 /* ServiceLocator.cpp */,
-				C11416AD17AED33D00E545B4 /* ServiceLocator.h */,
-				C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */,
-				C11416B417AEF4C800E545B4 /* SoundFileCache.h */,
-				C11416B917AF1BA500E545B4 /* Paddle.cpp */,
-				C11416BA17AF1BA500E545B4 /* Paddle.h */,
-				C11416BC17AF2DD000E545B4 /* mathhelpers.h */,
-				C11416BD17AFF12500E545B4 /* stringhelpers.h */,
 				C16FEC8117B06E4F00E669C6 /* Resources */,
 			);
 			path = SideScroller;
