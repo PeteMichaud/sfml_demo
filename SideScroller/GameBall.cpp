@@ -15,7 +15,7 @@ GameBall::GameBall() :
 _velocity(230.0f),
 _elapsedTimeSinceStart(0.0f)
 {
-    Load(resourcePath("sphere2.png"));
+    Load(resourcePath("sphere3.png"));
     assert(IsLoaded());
 
     _sphereShader.loadFromFile(
