@@ -29,6 +29,11 @@
 #include "ResourcePath.hpp"
 #import <Foundation/Foundation.h>
 
+std::vector<std::string> imageExtensions {"jpg", "png"};
+std::vector<std::string> soundExtensions {"ogg", "mp3", "wav"};
+std::vector<std::string> shaderExtensions {"vert", "frag"};
+std::vector<std::string> fontExtensions{"ttf"};
+
 ////////////////////////////////////////////////////////////
 std::string resourcePath(void)
 {
@@ -53,5 +58,43 @@ std::string resourcePath(void)
 
 std::string resourcePath(std::string fileName)
 {
-    return resourcePath() + fileName;
+    std::string folder = getFolder(fileName);
+    return resourcePath() + "Resources/" + folder + fileName;
+}
+
+std::string getFolder(const std::string& fileName)
+{
+    std::string ext = getExtension(fileName);
+
+    if(vector_contains(&imageExtensions, ext))
+        return "Images/";
+    else if(vector_contains(&soundExtensions, ext))
+        return "Sounds/";
+    else if(vector_contains(&shaderExtensions, ext))
+        return "Shaders/";
+    else if(vector_contains(&fontExtensions, ext))
+        return "Fonts/";
+    else
+        return "";
+}
+
+std::string getExtension(const std::string& fileName)
+{
+    std::string::size_type idx;
+
+    idx = fileName.rfind('.');
+
+    if(idx != std::string::npos)
+    {
+        return fileName.substr(idx+1);
+    }
+    else
+    {
+        return "";
+    }
+}
+
+bool vector_contains(std::vector<std::string>* v, std::string value)
+{
+    return std::find(v->begin(), v->end(), value) != v->end();
 }

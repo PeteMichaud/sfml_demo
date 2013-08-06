@@ -30,6 +30,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <string>
+#import <vector>
 
 ////////////////////////////////////////////////////////////
 /// \brief Return the path to the resource folder.
@@ -40,4 +41,8 @@
 //////////////////////////////////////////////////////////// 
 std::string resourcePath(void);
 std::string resourcePath(std::string);
+std::string getFolder(const std::string&);
+std::string getExtension(const std::string&);
+bool vector_contains(std::vector<std::string>* v, std::string value);
+
 #endif
