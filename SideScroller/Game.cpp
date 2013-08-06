@@ -80,6 +80,9 @@ void Game::GameLoop()
             }
             case Game::Playing:
             {
+                _camera.Update();
+                _mainWindow.setView(_camera.GetView());
+
                 _mainWindow.clear(sf::Color(100,100,100));
 
                 _gameObjectManager.UpdateAll();
@@ -130,6 +133,12 @@ void Game::ShowMenu()
     }
 }
 
+Camera& Game::GetCamera()
+{
+    return _camera;
+}
+
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
+Camera Game::_camera;
 GameObjectManager Game::_gameObjectManager;

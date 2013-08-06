@@ -12,6 +12,7 @@
 #include "AIPaddle.h"
 #include "GameBall.h"
 #include "GameObjectManager.h"
+#include "Camera.h"
 
 class Game {
 
@@ -19,6 +20,7 @@ public:
     static void Start();
     static sf::RenderWindow& GetWindow();
     static const GameObjectManager& GameObjects();
+    static Camera& GetCamera();
     const static int SCREEN_WIDTH = 1024;
     const static int SCREEN_HEIGHT = 768;
     
@@ -40,5 +42,6 @@ private:
 
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
+    static Camera _camera;
     static GameObjectManager _gameObjectManager;
 };
