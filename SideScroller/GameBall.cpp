@@ -10,9 +10,10 @@
 
 #include "GameBall.h"
 #include "Game.h"
+#include "stringhelpers.h"
 
 GameBall::GameBall() :
-_velocity(230.0f),
+_velocity(330.0f),
 _elapsedTimeSinceStart(0.0f)
 {
     _centerScreen = sf::Vector2f(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
@@ -111,7 +112,7 @@ void GameBall::Set()
 
     std::srand(std::time(0));
     _angle = std::rand() % 360 + 1;
-    _velocity = 230.0f;
+    _velocity = 330.0f;
 }
 
 void GameBall::Reset()
@@ -130,16 +131,19 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
         if(_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
         if(_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
         moveBy.x = -moveBy.x;
-        ServiceLocator::GetAudio()->PlaySound("ping.wav");
+        Crash();
+        Game::GetCamera().Shake(15.0f, 0.5f);
     }
 
+    //top
     if (GetPosition().y + moveBy.y <= 0 + GetHeight()/2)
     {
         _angle = 180.0f - _angle;
         moveBy.y = -moveBy.y;
-        ServiceLocator::GetAudio()->PlaySound("ping.wav");
+        Crash();
     }
 
+    //bottom
     if (GetPosition().y + GetHeight()/2 + moveBy.y >= Game::SCREEN_HEIGHT)
     {
         Paddle* player1 =
@@ -151,15 +155,22 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
     return moveBy;
 }
 
+
+void GameBall::Crash()
+{
+    ServiceLocator::GetAudio()->PlaySound("crash" + to_s(std::rand()%_crashes) + ".ogg");
+}
+
 sf::Vector2f GameBall::CheckPaddleCollision(sf::Vector2f moveBy, Paddle* paddle)
 {
     if (paddle != NULL)
     {
         if (paddle->GetBoundingRect().intersects(GetBoundingRect()))
         {
-            ServiceLocator::GetAudio()->PlaySound("ping.wav");
+            ServiceLocator::GetAudio()->PlaySound("paddle_explosion.wav");
             paddle->SetColor(RandomColor());
             paddle->Whittle();
+            Game::GetCamera().Shake(25.0f, 1.0f);
             _angle = 360.0f - (_angle - 180.0f);
             if(_angle > 360.0f) _angle -= 360.0f;
 
