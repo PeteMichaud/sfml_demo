@@ -20,6 +20,7 @@
 		C11416B517AEF4C900E545B4 /* SoundFileCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B317AEF4C800E545B4 /* SoundFileCache.cpp */; };
 		C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B617AF024400E545B4 /* AIPaddle.cpp */; };
 		C11416BB17AF1BA500E545B4 /* Paddle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11416B917AF1BA500E545B4 /* Paddle.cpp */; };
+		C1415BFF17B1871000918E6C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1415BFD17B1871000918E6C /* Camera.cpp */; };
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C16FEC8217B06E4F00E669C6 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = C16FEC8117B06E4F00E669C6 /* Resources */; };
@@ -55,6 +56,8 @@
 		C11416BA17AF1BA500E545B4 /* Paddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		C11416BC17AF2DD000E545B4 /* mathhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mathhelpers.h; sourceTree = "<group>"; };
 		C11416BD17AFF12500E545B4 /* stringhelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringhelpers.h; sourceTree = "<group>"; };
+		C1415BFD17B1871000918E6C /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		C1415BFE17B1871000918E6C /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		C15A388517A5D775002C2764 /* SideScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A388917A5D775002C2764 /* SideScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SideScroller-Info.plist"; sourceTree = "<group>"; };
 		C15A388A17A5D775002C2764 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				C114169217AD626B00E545B4 /* MainMenu.h */,
 				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
 				C114168617ACB9F700E545B4 /* Game.cpp */,
+				C1415BFD17B1871000918E6C /* Camera.cpp */,
+				C1415BFE17B1871000918E6C /* Camera.h */,
 				C114168717ACB9F700E545B4 /* Game.h */,
 				C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */,
 				C114169917AD6C1D00E545B4 /* VisibleGameObject.h */,
@@ -233,6 +238,7 @@
 				C11416B517AEF4C900E545B4 /* SoundFileCache.cpp in Sources */,
 				C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */,
 				C11416BB17AF1BA500E545B4 /* Paddle.cpp in Sources */,
+				C1415BFF17B1871000918E6C /* Camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
