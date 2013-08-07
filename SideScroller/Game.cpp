@@ -82,7 +82,7 @@ void Game::GameLoop()
                 _camera.Update();
                 _mainWindow.setView(_camera.GetView());
 
-                _mainWindow.clear(sf::Color(100,100,100));
+                _mainWindow.clear(sf::Color(37,78,106));
 
                 _gameObjectManager.UpdateAll();
                 _gameObjectManager.DrawAll(_mainWindow);
