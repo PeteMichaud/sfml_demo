@@ -166,7 +166,7 @@ sf::Vector2f GameBall::CheckPaddleCollision(sf::Vector2f moveBy, Paddle* paddle)
         if (paddle->GetBoundingRect().intersects(GetBoundingRect()))
         {
             ServiceLocator::GetAudio()->PlaySound("paddle_explosion.wav");
-            paddle->SetColor(RandomColor());
+            //paddle->SetColor(RandomColor());
             paddle->Whittle();
             Game::GetCamera().Shake(25.0f, 1.0f);
             _angle = 360.0f - (_angle - 180.0f);

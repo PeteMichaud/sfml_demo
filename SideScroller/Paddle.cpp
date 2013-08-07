@@ -22,7 +22,7 @@ _maxVelocity(600.0f)
 //    GetSprite().setOrigin(GetSprite().getGlobalBounds().width / 2, GetSprite().getGlobalBounds().height / 2);
 
     GetRect().setSize(sf::Vector2f(300,30));
-    GetRect().setFillColor(sf::Color::Green);
+    GetRect().setFillColor(sf::Color::Black);
     CenterOrigin();
 }
 
