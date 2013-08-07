@@ -19,7 +19,7 @@ _elapsedTimeSinceStart(0.0f)
 {
     _centerScreen = sf::Vector2f(Game::SCREEN_WIDTH/2, Game::SCREEN_HEIGHT/2);
 
-    Load(resourcePath("sphere3.png"));
+    Load(resourcePath("sphere4.png"));
     assert(IsLoaded());
 
     _sphereShader.loadFromFile(
