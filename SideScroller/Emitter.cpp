@@ -1,0 +1,102 @@
+//
+//  Emitter.cpp
+//  SideScroller
+//
+//  Created by Pete Michaud on 8/8/13.
+//  Copyright (c) 2013 Pete Michaud. All rights reserved.
+//
+
+#include "Emitter.h"
+#include "mathhelpers.h"
+
+Emitter::Emitter(int particleCount, float emitInterval):
+_emitInterval(emitInterval),
+_elapsedTime(0.0f),
+_lastEmissionTime(0.0f),
+_position(sf::Vector2f(500.0f,500.0f))
+{
+    for(int i = 0; i < particleCount; i++)
+    {
+        _particles.push_back(new Particle(
+            5.0f,
+            6.0f,
+            sf::Color::Cyan,
+            sf::Vector2f(randf(50.0f),randf(50.0f))+_position,
+            sf::Vector2f(randf(1000.0f),randf(1000.0f)),
+            sf::Vector2f(randf(1000.0f),randf(1000.0f))
+        ));
+    }
+}
+
+Emitter::~Emitter()
+{
+    std::for_each(
+      _particles.begin(),
+      _particles.end(),
+      ParticleDeallocator());
+}
+
+void Emitter::Update(float deltaTime)
+{
+    _elapsedTime += deltaTime;
+
+    //update all particles
+    for(_it = _particles.begin(); _it != _particles.end();_it++)
+    {
+        //kill if too old
+        if ((*_it)->_age > (*_it)->_lifeSpan)
+        {
+            (*_it)->_alive = false;
+        }
+        else
+        {
+            //Emitter::Particle p = *(*_it);
+            (*_it)->_velocity += (*_it)->_accel * deltaTime;
+            (*_it)->move((*_it)->_velocity * deltaTime);
+            (*_it)->setAlpha(
+                ((*_it)->_lifeSpan - (*_it)->_age) / (*_it)->_lifeSpan);
+            (*_it)->_age += deltaTime;
+        }
+    }
+
+    //emit new particles if it's time
+    if (_elapsedTime >= _lastEmissionTime+_emitInterval)
+    {
+        Emitter::Particle* p = GetFirstDead();
+        if (p != NULL)
+        {
+            p->_color = sf::Color::Cyan;
+            p->_position = sf::Vector2f(0,0);
+            p->_velocity = sf::Vector2f(0,0);
+            p->_accel = sf::Vector2f(1,1);
+            p->_age = 0.0f;
+            p->_alive = true;
+
+            _lastEmissionTime = _elapsedTime;
+        }
+    }
+}
+
+void Emitter::Draw(sf::RenderWindow &rw)
+{
+    for(_it = _particles.begin(); _it != _particles.end();_it++)
+    {
+        if ((*_it)->_alive)
+        {
+            rw.draw((*_it)->_shape);
+        }
+    }
+}
+
+Emitter::Particle* Emitter::GetFirstDead()
+{
+    for(_it = _particles.begin(); _it != _particles.end();_it++)
+    {
+        if (!(*_it)->_alive)
+        {
+            return *_it;
+        }
+    }
+
+    return NULL;
+}

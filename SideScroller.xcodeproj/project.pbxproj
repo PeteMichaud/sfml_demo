@@ -24,6 +24,7 @@
 		C15A388B17A5D775002C2764 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C15A388A17A5D775002C2764 /* ResourcePath.mm */; };
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C16FEC8217B06E4F00E669C6 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = C16FEC8117B06E4F00E669C6 /* Resources */; };
+		C1B8D44217B3E6A5003D3032 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D44017B3E6A5003D3032 /* Emitter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		C15A388C17A5D775002C2764 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ResourcePath.hpp; path = SideScroller/ResourcePath.hpp; sourceTree = "<group>"; };
 		C15A388D17A5D775002C2764 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C16FEC8117B06E4F00E669C6 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		C1B8D44017B3E6A5003D3032 /* Emitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Emitter.cpp; sourceTree = "<group>"; };
+		C1B8D44117B3E6A5003D3032 /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 		C1415C0317B1B6D800918E6C /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				C1B8D43F17B3E688003D3032 /* Particles */,
 				C1415C0417B1B71600918E6C /* Paddles */,
 				C114169817AD6C1D00E545B4 /* VisibleGameObject.cpp */,
 				C114169917AD6C1D00E545B4 /* VisibleGameObject.h */,
@@ -183,6 +187,15 @@
 				C15A388917A5D775002C2764 /* SideScroller-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1B8D43F17B3E688003D3032 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				C1B8D44017B3E6A5003D3032 /* Emitter.cpp */,
+				C1B8D44117B3E6A5003D3032 /* Emitter.h */,
+			);
+			name = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +293,7 @@
 				C11416B817AF024500E545B4 /* AIPaddle.cpp in Sources */,
 				C11416BB17AF1BA500E545B4 /* Paddle.cpp in Sources */,
 				C1415BFF17B1871000918E6C /* Camera.cpp in Sources */,
+				C1B8D44217B3E6A5003D3032 /* Emitter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
