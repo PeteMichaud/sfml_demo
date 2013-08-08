@@ -9,6 +9,7 @@
 #pragma once
 #include "stdafx.h"
 #include "VisibleGameObject.h"
+#include "Game.h"
 
 class Emitter :
     public VisibleGameObject {
@@ -23,16 +24,16 @@ public:
         float _lifeSpan;
         float _age;
         sf::Color _color;
-        float _angle;
-        sf::Vector2f _position;
+        sf::Transform _transform;
         sf::Vector2f _velocity;
         sf::Vector2f _accel;
-        sf::CircleShape _shape;
+        sf::RectangleShape _shape;
         bool _alive;
         
         Particle(float lifeSpan,
                  float age,
                  sf::Color color,
+                 float angle,
                  sf::Vector2f position,
                  sf::Vector2f velocity,
                  sf::Vector2f accel) :
@@ -43,14 +44,21 @@ public:
             _color(color),
             _alive(false)
         {
-            _shape.setRadius(10.0f);
-            _shape.setPosition(position);
+            _transform.translate(position);
+            _transform.rotate(angle);
+            _shape.setSize(sf::Vector2f(20.0f, 20.0f));
             _shape.setFillColor(_color);
+            _shape.setOrigin(10,10);
         }
 
         void move(sf::Vector2f offset)
         {
-            _shape.move(offset);
+            _transform.translate(offset);
+        }
+
+        void rotate(float angle)
+        {
+            _transform.rotate(angle);
         }
 
         void setAlpha(float a)
@@ -70,8 +78,7 @@ public:
 
 private:
     Emitter::Particle* GetFirstDead();
-        
-    sf::Vector2f _position;
+    sf::Transform _transform;
     std::vector<Emitter::Particle*> _particles;
     std::vector<Emitter::Particle*>::iterator _it;
     sf::Clock _clock;

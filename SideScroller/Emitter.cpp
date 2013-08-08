@@ -7,23 +7,25 @@
 //
 
 #include "Emitter.h"
+#include "Game.h"
 #include "mathhelpers.h"
 
 Emitter::Emitter(int particleCount, float emitInterval):
 _emitInterval(emitInterval),
 _elapsedTime(0.0f),
-_lastEmissionTime(0.0f),
-_position(sf::Vector2f(500.0f,500.0f))
+_lastEmissionTime(0.0f)
 {
+    _transform.translate(Game::SCREEN_WIDTH/2,Game::SCREEN_HEIGHT/2);
     for(int i = 0; i < particleCount; i++)
     {
         _particles.push_back(new Particle(
             5.0f,
             6.0f,
             sf::Color::Cyan,
-            sf::Vector2f(randf(50.0f),randf(50.0f))+_position,
-            sf::Vector2f(randf(1000.0f),randf(1000.0f)),
-            sf::Vector2f(randf(1000.0f),randf(1000.0f))
+            randf(360.0f),
+            sf::Vector2f(randf(-50.0f,50.0f),randf(-50.0f,50.0f)),
+            sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f)),
+            sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f))
         ));
     }
 }
@@ -50,9 +52,9 @@ void Emitter::Update(float deltaTime)
         }
         else
         {
-            //Emitter::Particle p = *(*_it);
             (*_it)->_velocity += (*_it)->_accel * deltaTime;
             (*_it)->move((*_it)->_velocity * deltaTime);
+            (*_it)->rotate(36.0f * deltaTime);
             (*_it)->setAlpha(
                 ((*_it)->_lifeSpan - (*_it)->_age) / (*_it)->_lifeSpan);
             (*_it)->_age += deltaTime;
@@ -66,9 +68,11 @@ void Emitter::Update(float deltaTime)
         if (p != NULL)
         {
             p->_color = sf::Color::Cyan;
-            p->_position = sf::Vector2f(0,0);
-            p->_velocity = sf::Vector2f(0,0);
-            p->_accel = sf::Vector2f(1,1);
+            p->_transform = sf::Transform();
+            p->move(sf::Vector2f(randf(-50.0f,50.0f),randf(-50.0f,50.0f)));
+            p->rotate(randf(360.0f));
+            p->_velocity = sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f));
+            p->_accel = sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f));
             p->_age = 0.0f;
             p->_alive = true;
 
@@ -83,7 +87,7 @@ void Emitter::Draw(sf::RenderWindow &rw)
     {
         if ((*_it)->_alive)
         {
-            rw.draw((*_it)->_shape);
+            rw.draw((*_it)->_shape, _transform * (*_it)->_transform);
         }
     }
 }
