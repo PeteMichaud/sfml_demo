@@ -11,6 +11,7 @@
 #include "PlayerPaddle.h"
 #include "AIPaddle.h"
 #include "GameBall.h"
+#include "Emitter.h"
 #include "GameObjectManager.h"
 #include "Camera.h"
 

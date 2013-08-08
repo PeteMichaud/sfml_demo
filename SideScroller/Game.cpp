@@ -32,9 +32,12 @@ void Game::Start(void)
 
     GameBall *ball = new GameBall();
 
+    Emitter* pEmitter = new Emitter(500,0.1f);
+
     _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Paddle2", player2);
     _gameObjectManager.Add("Ball", ball);
+    _gameObjectManager.Add("Emitter", pEmitter);
 
     _gameState = Game::ShowingSplash;
 
