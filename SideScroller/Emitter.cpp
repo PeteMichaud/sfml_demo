@@ -15,7 +15,7 @@ _emitInterval(emitInterval),
 _elapsedTime(0.0f),
 _lastEmissionTime(0.0f)
 {
-    _transform.translate(Game::SCREEN_WIDTH/2,Game::SCREEN_HEIGHT/2);
+    _emitterTransform.translate(Game::SCREEN_WIDTH/2,Game::SCREEN_HEIGHT/2);
     for(int i = 0; i < particleCount; i++)
     {
         _particles.push_back(new Particle(
@@ -28,6 +28,9 @@ _lastEmissionTime(0.0f)
             sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f))
         ));
     }
+
+    _shape.setSize(sf::Vector2f(20.0f, 20.0f));
+    _shape.setOrigin(_shape.getSize().x/2,_shape.getSize().y/2);
 }
 
 Emitter::~Emitter()
@@ -87,9 +90,18 @@ void Emitter::Draw(sf::RenderWindow &rw)
     {
         if ((*_it)->_alive)
         {
-            rw.draw((*_it)->_shape, _transform * (*_it)->_transform);
+            rw.draw(
+                MutateShape(*_it),
+                _emitterTransform * (*_it)->_transform
+            );
         }
     }
+}
+
+sf::Shape& Emitter::MutateShape(Emitter::Particle* p)
+{
+    _shape.setFillColor(p->_color);
+    return _shape;
 }
 
 Emitter::Particle* Emitter::GetFirstDead()

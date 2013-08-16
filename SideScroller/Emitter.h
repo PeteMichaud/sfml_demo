@@ -18,16 +18,17 @@ public:
     ~Emitter();
     void Update(float elapsedTime);
     void Draw(sf::RenderWindow& rw);
-
+    
     struct Particle
     {
         float _lifeSpan;
         float _age;
         sf::Color _color;
         sf::Transform _transform;
+        sf::Vector2f _position;
         sf::Vector2f _velocity;
         sf::Vector2f _accel;
-        sf::RectangleShape _shape;
+        float _angle;
         bool _alive;
         
         Particle(float lifeSpan,
@@ -38,17 +39,16 @@ public:
                  sf::Vector2f velocity,
                  sf::Vector2f accel) :
             _lifeSpan(lifeSpan),
+            _position(position),
             _velocity(velocity),
             _accel(accel),
+            _angle(angle),
             _age(age),
             _color(color),
             _alive(false)
         {
             _transform.translate(position);
             _transform.rotate(angle);
-            _shape.setSize(sf::Vector2f(20.0f, 20.0f));
-            _shape.setFillColor(_color);
-            _shape.setOrigin(10,10);
         }
 
         void move(sf::Vector2f offset)
@@ -64,9 +64,10 @@ public:
         void setAlpha(float a)
         {
             _color.a = a * 255;
-            _shape.setFillColor(_color);
         }
     };
+
+    sf::Shape& MutateShape(Emitter::Particle* p);
 
     struct ParticleDeallocator
     {
@@ -78,7 +79,8 @@ public:
 
 private:
     Emitter::Particle* GetFirstDead();
-    sf::Transform _transform;
+    sf::RectangleShape _shape;
+    sf::Transform _emitterTransform;
     std::vector<Emitter::Particle*> _particles;
     std::vector<Emitter::Particle*>::iterator _it;
     sf::Clock _clock;
