@@ -25,10 +25,8 @@ public:
         float _age;
         sf::Color _color;
         sf::Transform _transform;
-        sf::Vector2f _position;
         sf::Vector2f _velocity;
         sf::Vector2f _accel;
-        float _angle;
         bool _alive;
         
         Particle(float lifeSpan,
@@ -39,10 +37,8 @@ public:
                  sf::Vector2f velocity,
                  sf::Vector2f accel) :
             _lifeSpan(lifeSpan),
-            _position(position),
             _velocity(velocity),
             _accel(accel),
-            _angle(angle),
             _age(age),
             _color(color),
             _alive(false)
