@@ -7,7 +7,6 @@ The goal is to disappear before your opponent
 
 *   Particle System improvements 
     *   change shape to be arbitrary RenderableThing (ie shapes and sprites)
-    *   move shape out of particle into emitter 
     *   change from array of structs to struct of arrays (for PU cache improvements)
 *   Gamestates
     *   Make the game itself a gamestate
