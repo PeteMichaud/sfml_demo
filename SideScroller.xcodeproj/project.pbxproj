@@ -25,6 +25,7 @@
 		C15A388E17A5D775002C2764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15A388D17A5D775002C2764 /* main.cpp */; };
 		C16FEC8217B06E4F00E669C6 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = C16FEC8117B06E4F00E669C6 /* Resources */; };
 		C1B8D44217B3E6A5003D3032 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D44017B3E6A5003D3032 /* Emitter.cpp */; };
+		C1B8D44417BEE1F4003D3032 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C1B8D44317BEE1F4003D3032 /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		C16FEC8117B06E4F00E669C6 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		C1B8D44017B3E6A5003D3032 /* Emitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Emitter.cpp; sourceTree = "<group>"; };
 		C1B8D44117B3E6A5003D3032 /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
+		C1B8D44317BEE1F4003D3032 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				C114168717ACB9F700E545B4 /* Game.h */,
 				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
 				C114169F17AD816500E545B4 /* GameObjectManager.h */,
+				C1B8D44317BEE1F4003D3032 /* readme.md */,
 				C15A388817A5D775002C2764 /* Supporting Files */,
 				C16FEC8117B06E4F00E669C6 /* Resources */,
 			);
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16FEC8217B06E4F00E669C6 /* Resources in Resources */,
+				C1B8D44417BEE1F4003D3032 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
