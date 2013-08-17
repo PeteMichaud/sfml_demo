@@ -186,17 +186,12 @@
 		C15A388717A5D775002C2764 /* SideScroller */ = {
 			isa = PBXGroup;
 			children = (
-				C1415C0317B1B6D800918E6C /* GameObjects */,
 				C1415C0217B1B6A300918E6C /* GameState */,
 				C1415C0017B1B62900918E6C /* Helpers */,
 				C1415C0117B1B64600918E6C /* Services */,
 				C15A388D17A5D775002C2764 /* main.cpp */,
-				C1415BFD17B1871000918E6C /* Camera.cpp */,
-				C1415BFE17B1871000918E6C /* Camera.h */,
 				C114168617ACB9F700E545B4 /* Game.cpp */,
 				C114168717ACB9F700E545B4 /* Game.h */,
-				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
-				C114169F17AD816500E545B4 /* GameObjectManager.h */,
 				C1B8D44317BEE1F4003D3032 /* readme.md */,
 				C15A388817A5D775002C2764 /* Supporting Files */,
 				C16FEC8117B06E4F00E669C6 /* Resources */,
@@ -237,16 +232,29 @@
 		C1B8D45317C01A54003D3032 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				C1B8D45A17C03FF9003D3032 /* PlayScreen */,
 				C1B8D45717C02B54003D3032 /* PauseMenu.cpp */,
 				C1B8D45817C02B54003D3032 /* PauseMenu.h */,
 				C114169117AD626B00E545B4 /* MainMenu.cpp */,
 				C114169217AD626B00E545B4 /* MainMenu.h */,
 				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
 				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		C1B8D45A17C03FF9003D3032 /* PlayScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C1415C0317B1B6D800918E6C /* GameObjects */,
+				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
+				C114169F17AD816500E545B4 /* GameObjectManager.h */,
+				C1415BFD17B1871000918E6C /* Camera.cpp */,
+				C1415BFE17B1871000918E6C /* Camera.h */,
 				C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */,
 				C1B8D45117BFEA00003D3032 /* PlayScreen.h */,
 			);
-			name = States;
+			name = PlayScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
