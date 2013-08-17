@@ -5,10 +5,7 @@ The goal is to disappear before your opponent
 
 = To do
 
-*   Particle System improvements 
-    *   change from array of structs to struct of arrays (for PU cache improvements)
 *   Gamestates
-    *   Make the game itself a gamestate
     *   Make all gamestates derive from an abstract base class
     *   get rid of that ghetto switch, replace it with a stack, so you can push and pop gamestates 
             and just loop on the top one
