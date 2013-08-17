@@ -6,7 +6,6 @@ The goal is to disappear before your opponent
 = To do
 
 *   Particle System improvements 
-    *   change shape to be arbitrary RenderableThing (ie shapes and sprites)
     *   change from array of structs to struct of arrays (for PU cache improvements)
 *   Gamestates
     *   Make the game itself a gamestate
