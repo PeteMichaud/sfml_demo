@@ -15,7 +15,6 @@ class Game {
 
 public:
     static void Start();
-    static sf::RenderWindow& GetWindow();
     static GameStateStack* StateStack();
 
     const static int SCREEN_WIDTH = 1024;

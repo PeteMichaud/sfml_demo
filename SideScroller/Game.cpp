@@ -40,11 +40,6 @@ bool Game::IsExiting()
     return _gameStateStack.Count() == 0;
 }
 
-sf::RenderWindow& Game::GetWindow()
-{
-    return _mainWindow;
-}
-
 void Game::GameLoop()
 {
     _gameStateStack.Peek()->Loop();
