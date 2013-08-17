@@ -15,6 +15,8 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
     if(!texture.loadFromFile(resourcePath("SplashScreen.png")))
         return;
 
+    ServiceLocator::GetAudio()->PlaySong("nice_music.ogg", true);
+
     sf::Sprite sprite;
     sprite.setTexture(texture);
 
