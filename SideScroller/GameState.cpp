@@ -16,5 +16,4 @@ _rw(rw)
 
 GameState::~GameState()
 {
-    //delete _rw;
 }

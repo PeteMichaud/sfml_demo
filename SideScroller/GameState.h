@@ -13,11 +13,11 @@ class GameState
 {
 public:
     GameState(sf::RenderWindow* rw);
-    ~GameState();
+    virtual ~GameState();
 
     virtual void Loop() = 0;
     virtual void Initialize() = 0;
-    
+
 protected:
     sf::RenderWindow* _rw;
 };
