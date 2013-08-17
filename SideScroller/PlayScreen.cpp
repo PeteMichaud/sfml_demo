@@ -41,7 +41,7 @@ void PlayScreen::Initialize()
     r->setOrigin(r->getSize().x/2,r->getSize().y/2);
 
     Particles::RectangleParticle* ps = new Particles::RectangleParticle(r);
-    Particles::Emitter* pEmitter = new Particles::Emitter(ps, 500,0.1f);
+    Particles::Emitter* pEmitter = new Particles::Emitter(ps, sf::Vector2f(512,384),  500, 0.1f);
 
     _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Paddle2", player2);
