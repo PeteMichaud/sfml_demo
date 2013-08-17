@@ -10,77 +10,36 @@
 #include "stdafx.h"
 #include "VisibleGameObject.h"
 #include "Game.h"
+#include "Particle.h"
+#include "ParticleShape.h"
 
-class Emitter :
-    public VisibleGameObject {
-public:
-    Emitter(int particleCount, float emitInterval);
-    ~Emitter();
-    void Update(float elapsedTime);
-    void Draw(sf::RenderWindow& rw);
-    
-    struct Particle
-    {
-        float _lifeSpan;
-        float _age;
-        sf::Color _color;
-        sf::Transform _transform;
-        sf::Vector2f _velocity;
-        sf::Vector2f _accel;
-        bool _alive;
+namespace Particles {
+    class Emitter :
+        public VisibleGameObject {
+    public:
+        Emitter(ParticleShape* shape, int particleCount, float emitInterval);
+        ~Emitter();
+        void Update(float elapsedTime);
+        void Draw(sf::RenderWindow& rw);
         
-        Particle(float lifeSpan,
-                 float age,
-                 sf::Color color,
-                 float angle,
-                 sf::Vector2f position,
-                 sf::Vector2f velocity,
-                 sf::Vector2f accel) :
-            _lifeSpan(lifeSpan),
-            _velocity(velocity),
-            _accel(accel),
-            _age(age),
-            _color(color),
-            _alive(false)
+        struct ParticleDeallocator
         {
-            _transform.translate(position);
-            _transform.rotate(angle);
-        }
+            void operator()(const Particles::Particle* p) const
+            {
+                delete p;
+            }
+        };
 
-        void move(sf::Vector2f offset)
-        {
-            _transform.translate(offset);
-        }
-
-        void rotate(float angle)
-        {
-            _transform.rotate(angle);
-        }
-
-        void setAlpha(float a)
-        {
-            _color.a = a * 255;
-        }
+    private:
+        Particles::Particle* GetFirstDead();
+        ParticleShape* _shape;
+        sf::Transform _emitterTransform;
+        std::vector<Particles::Particle*> _particles;
+        std::vector<Particles::Particle*>::iterator _it;
+        sf::Clock _clock;
+        float _emitInterval;
+        float _elapsedTime;
+        float _lastEmissionTime;
+        float _radius;
     };
-
-    sf::Shape& MutateShape(Emitter::Particle* p);
-
-    struct ParticleDeallocator
-    {
-        void operator()(const Emitter::Particle* p) const
-        {
-            delete p;
-        }
-    };
-
-private:
-    Emitter::Particle* GetFirstDead();
-    sf::RectangleShape _shape;
-    sf::Transform _emitterTransform;
-    std::vector<Emitter::Particle*> _particles;
-    std::vector<Emitter::Particle*>::iterator _it;
-    sf::Clock _clock;
-    float _emitInterval;
-    float _elapsedTime;
-    float _lastEmissionTime;
-};
+}
