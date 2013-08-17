@@ -12,14 +12,14 @@
 namespace Particles
 {
 
-    Emitter::Emitter(ParticleShape* shape, int particleCount, float emitInterval):
+    Emitter::Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval):
     _emitInterval(emitInterval),
     _shape(shape),
     _elapsedTime(0.0f),
     _lastEmissionTime(0.0f),
     _radius(0.0f)
     {
-        _emitterTransform.translate(Game::SCREEN_WIDTH/2,Game::SCREEN_HEIGHT/2);
+        _emitterTransform.translate(position);
         for(int i = 0; i < particleCount; i++)
         {
             _particles.push_back(_shape->Create(_radius));
@@ -75,6 +75,11 @@ namespace Particles
                     _emitterTransform * (*_it)->_translation * (*_it)->_rotation);
             }
         }
+    }
+
+    void Emitter::Move(sf::Vector2f delta)
+    {
+        _emitterTransform.translate(delta);
     }
 
     Particles::Particle* Emitter::GetFirstDead()

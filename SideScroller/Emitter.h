@@ -17,11 +17,13 @@ namespace Particles {
     class Emitter :
         public VisibleGameObject {
     public:
-        Emitter(ParticleShape* shape, int particleCount, float emitInterval);
+            Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval);
         ~Emitter();
         void Update(float elapsedTime);
         void Draw(sf::RenderWindow& rw);
-        
+
+        void Move(sf::Vector2f delta);
+
         struct ParticleDeallocator
         {
             void operator()(const Particles::Particle* p) const
