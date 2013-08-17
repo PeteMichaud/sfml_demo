@@ -30,6 +30,8 @@
 		C1B8D44B17BEFDED003D3032 /* RectangleParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D44917BEFDED003D3032 /* RectangleParticle.cpp */; };
 		C1B8D44F17BFE832003D3032 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D44D17BFE832003D3032 /* GameState.cpp */; };
 		C1B8D45217BFEA00003D3032 /* PlayScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */; };
+		C1B8D45617C01A6C003D3032 /* GameStateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45417C01A6C003D3032 /* GameStateStack.cpp */; };
+		C1B8D45917C02B55003D3032 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45717C02B54003D3032 /* PauseMenu.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,10 @@
 		C1B8D44E17BFE832003D3032 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayScreen.cpp; sourceTree = "<group>"; };
 		C1B8D45117BFEA00003D3032 /* PlayScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayScreen.h; sourceTree = "<group>"; };
+		C1B8D45417C01A6C003D3032 /* GameStateStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStateStack.cpp; sourceTree = "<group>"; };
+		C1B8D45517C01A6C003D3032 /* GameStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateStack.h; sourceTree = "<group>"; };
+		C1B8D45717C02B54003D3032 /* PauseMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenu.cpp; sourceTree = "<group>"; };
+		C1B8D45817C02B54003D3032 /* PauseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseMenu.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,19 +129,16 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		C1415C0217B1B6A300918E6C /* Screens */ = {
+		C1415C0217B1B6A300918E6C /* GameState */ = {
 			isa = PBXGroup;
 			children = (
-				C114169117AD626B00E545B4 /* MainMenu.cpp */,
-				C114169217AD626B00E545B4 /* MainMenu.h */,
-				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
-				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
+				C1B8D45317C01A54003D3032 /* States */,
 				C1B8D44D17BFE832003D3032 /* GameState.cpp */,
 				C1B8D44E17BFE832003D3032 /* GameState.h */,
-				C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */,
-				C1B8D45117BFEA00003D3032 /* PlayScreen.h */,
+				C1B8D45417C01A6C003D3032 /* GameStateStack.cpp */,
+				C1B8D45517C01A6C003D3032 /* GameStateStack.h */,
 			);
-			name = Screens;
+			name = GameState;
 			sourceTree = "<group>";
 		};
 		C1415C0317B1B6D800918E6C /* GameObjects */ = {
@@ -184,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C1415C0317B1B6D800918E6C /* GameObjects */,
-				C1415C0217B1B6A300918E6C /* Screens */,
+				C1415C0217B1B6A300918E6C /* GameState */,
 				C1415C0017B1B62900918E6C /* Helpers */,
 				C1415C0117B1B64600918E6C /* Services */,
 				C15A388D17A5D775002C2764 /* main.cpp */,
@@ -229,6 +232,21 @@
 				C1B8D44A17BEFDED003D3032 /* RectangleParticle.h */,
 			);
 			name = ParticleShapes;
+			sourceTree = "<group>";
+		};
+		C1B8D45317C01A54003D3032 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				C1B8D45717C02B54003D3032 /* PauseMenu.cpp */,
+				C1B8D45817C02B54003D3032 /* PauseMenu.h */,
+				C114169117AD626B00E545B4 /* MainMenu.cpp */,
+				C114169217AD626B00E545B4 /* MainMenu.h */,
+				C114168E17AD5FEC00E545B4 /* SplashScreen.cpp */,
+				C114168F17AD5FEC00E545B4 /* SplashScreen.h */,
+				C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */,
+				C1B8D45117BFEA00003D3032 /* PlayScreen.h */,
+			);
+			name = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +350,8 @@
 				C1B8D44B17BEFDED003D3032 /* RectangleParticle.cpp in Sources */,
 				C1B8D44F17BFE832003D3032 /* GameState.cpp in Sources */,
 				C1B8D45217BFEA00003D3032 /* PlayScreen.cpp in Sources */,
+				C1B8D45617C01A6C003D3032 /* GameStateStack.cpp in Sources */,
+				C1B8D45917C02B55003D3032 /* PauseMenu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

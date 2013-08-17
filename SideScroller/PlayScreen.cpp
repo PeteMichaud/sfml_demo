@@ -12,9 +12,15 @@
 #include "GameBall.h"
 #include "Emitter.h"
 #include "RectangleParticle.h"
+#include "PauseMenu.h"
 
 PlayScreen::PlayScreen(sf::RenderWindow* rw) :
     GameState(rw)
+{
+    
+}
+
+PlayScreen::~PlayScreen()
 {
     
 }
@@ -41,7 +47,6 @@ void PlayScreen::Initialize()
     _gameObjectManager.Add("Paddle2", player2);
     _gameObjectManager.Add("Ball", ball);
     _gameObjectManager.Add("Emitter", pEmitter);
-
 }
 
 void PlayScreen::Loop()
@@ -55,6 +60,22 @@ void PlayScreen::Loop()
     _gameObjectManager.DrawAll(*_rw);
 
     _rw->display();
+
+    sf::Event currentEvent;
+    _rw->pollEvent(currentEvent);
+
+    if(currentEvent.type == sf::Event::Closed)
+    {
+        Game::StateStack()->Clear();
+    }
+
+    if(currentEvent.type == sf::Event::KeyPressed)
+    {
+        if(currentEvent.key.code == sf::Keyboard::Escape)
+        {
+            Game::StateStack()->Push(new PauseMenu(_rw));
+        }
+    }
 }
 
 Camera& PlayScreen::GetCamera()

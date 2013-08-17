@@ -8,9 +8,17 @@
 
 #pragma once
 #include "stdafx.h"
+#include "GameState.h"
 
-class SplashScreen
+class SplashScreen :
+    public GameState
 {
 public:
-    void Show(sf::RenderWindow& window);
+    SplashScreen(sf::RenderWindow* rw);
+    void Initialize();
+    void Loop();
+
+private:
+    sf::Texture _texture;
+    sf::Sprite _sprite;
 };

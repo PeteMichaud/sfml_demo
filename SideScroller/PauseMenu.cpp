@@ -1,5 +1,5 @@
 //
-//  MainMenu.cpp
+//  PauseMenu.cpp
 //  SideScroller
 //
 //  Created by Pete Michaud on 8/3/13.
@@ -7,21 +7,19 @@
 //
 
 #include "stdafx.h"
-#include "MainMenu.h"
-#include "PlayScreen.h"
+#include "PauseMenu.h"
 #include "Game.h"
 
-MainMenu::MainMenu(sf::RenderWindow* rw) :
+PauseMenu::PauseMenu(sf::RenderWindow* rw) :
     GameState(rw)
 {
 
 }
 
-void MainMenu::Initialize()
+void PauseMenu::Initialize()
 {
-    if (!_texture.loadFromFile(resourcePath("MainMenu.png")))
-        throw "Could not Load menu texture";
-
+    if(!_texture.loadFromFile(resourcePath("MainMenu.png")))
+        throw "Could not load menu texture";
     _sprite.setTexture(_texture);
 
     MenuItem playButton;
@@ -42,35 +40,34 @@ void MainMenu::Initialize()
     _menuItems.push_back(exitButton);
 }
 
-void MainMenu::Loop()
+void PauseMenu::Loop()
 {
     _rw->draw(_sprite);
     _rw->display();
 
     switch(GetMenuResponse(*_rw))
     {
-        case MainMenu::Exit:
+        case PauseMenu::Exit:
             Game::StateStack()->Clear();
             break;
-        case MainMenu::Play:
+        case PauseMenu::Play:
             Game::StateStack()->Pop();
-            Game::StateStack()->Push(new PlayScreen(_rw));
             break;
-        case MainMenu::Nothing:
+        case PauseMenu::Nothing:
             break;
     }
 }
 
-MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
+PauseMenu::MenuResult PauseMenu::HandleClick(int x, int y)
 {
     std::list<MenuItem>::iterator it;
     for(it = _menuItems.begin(); it != _menuItems.end(); it++)
     {
         sf::Rect<int> menuItemRect = (*it).rect;
         if (menuItemRect.top + menuItemRect.height > y
-         && menuItemRect.top < y
-         && menuItemRect.left < x
-         && menuItemRect.left + menuItemRect.width > x)
+            && menuItemRect.top < y
+            && menuItemRect.left < x
+            && menuItemRect.left + menuItemRect.width > x)
         {
             return (*it).action;
         }
@@ -79,7 +76,7 @@ MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
     return Nothing;
 }
 
-MainMenu::MenuResult MainMenu::GetMenuResponse(sf::RenderWindow& window)
+PauseMenu::MenuResult PauseMenu::GetMenuResponse(sf::RenderWindow& window)
 {
     sf::Event menuEvent;
     while(true)

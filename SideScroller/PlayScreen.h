@@ -17,6 +17,7 @@ class PlayScreen :
 {
 public:
     PlayScreen(sf::RenderWindow* rw);
+    ~PlayScreen();
     void Loop();
     void Initialize();
     static Camera& GetCamera();

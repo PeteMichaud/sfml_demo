@@ -1,5 +1,5 @@
 //
-//  MainMenu.h
+//  PauseMenu.h
 //  SideScroller
 //
 //  Created by Pete Michaud on 8/3/13.
@@ -10,11 +10,11 @@
 #include "stdafx.h"
 #include "GameState.h"
 
-class MainMenu :
+class PauseMenu :
     public GameState
 {
 public:
-    MainMenu(sf::RenderWindow* rw);
+    PauseMenu(sf::RenderWindow* rw);
     void Loop();
     void Initialize();
 
@@ -26,8 +26,6 @@ public:
         sf::Rect<int> rect;
         MenuResult action;
     };
-
-    MenuResult Show(sf::RenderWindow& window);
 
 private:
     MenuResult GetMenuResponse(sf::RenderWindow& window);
