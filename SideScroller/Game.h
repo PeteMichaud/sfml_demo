@@ -8,20 +8,13 @@
 
 #pragma once
 #include "stdafx.h"
-#include "PlayerPaddle.h"
-#include "AIPaddle.h"
-#include "GameBall.h"
-#include "Emitter.h"
-#include "GameObjectManager.h"
-#include "Camera.h"
+#include "PlayScreen.h"
 
 class Game {
 
 public:
     static void Start();
     static sf::RenderWindow& GetWindow();
-    static const GameObjectManager& GameObjects();
-    static Camera& GetCamera();
     const static int SCREEN_WIDTH = 1024;
     const static int SCREEN_HEIGHT = 768;
     
@@ -43,6 +36,5 @@ private:
 
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
-    static Camera _camera;
-    static GameObjectManager _gameObjectManager;
+    static PlayScreen _playScreen;
 };
