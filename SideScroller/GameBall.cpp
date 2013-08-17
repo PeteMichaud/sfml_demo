@@ -10,6 +10,8 @@
 
 #include "GameBall.h"
 #include "Game.h"
+#include "PlayerPaddle.h"
+#include "AIPaddle.h"
 #include "stringhelpers.h"
 #include "mathhelpers.h"
 
@@ -63,9 +65,9 @@ void GameBall::Update(float elapsedTime)
     moveBy = CheckWallCollisions(moveBy);
 
     PlayerPaddle* player1 =
-        dynamic_cast<PlayerPaddle*>(Game::GameObjects().Get("Paddle1"));
+        dynamic_cast<PlayerPaddle*>(PlayScreen::GameObjects()->Get("Paddle1"));
     AIPaddle* player2 =
-    dynamic_cast<AIPaddle*>(Game::GameObjects().Get("Paddle2"));
+    dynamic_cast<AIPaddle*>(PlayScreen::GameObjects()->Get("Paddle2"));
 
     moveBy = CheckPaddleCollision(moveBy, (Paddle*)player1);
     moveBy = CheckPaddleCollision(moveBy, (Paddle*)player2);
@@ -130,7 +132,7 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
         if(_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
         moveBy.x = -moveBy.x;
         Crash();
-        Game::GetCamera().Shake(15.0f, 0.5f);
+        PlayScreen::GetCamera().Shake(15.0f, 0.5f);
     }
 
     //top
@@ -145,7 +147,7 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
     if (GetPosition().y + GetHeight()/2 + moveBy.y >= Game::SCREEN_HEIGHT)
     {
         Paddle* player1 =
-        dynamic_cast<Paddle*>(Game::GameObjects().Get("Paddle1"));
+        dynamic_cast<Paddle*>(PlayScreen::GameObjects()->Get("Paddle1"));
         player1->Whittle(-5.0f);
         Reset();
     }
@@ -168,7 +170,7 @@ sf::Vector2f GameBall::CheckPaddleCollision(sf::Vector2f moveBy, Paddle* paddle)
             ServiceLocator::GetAudio()->PlaySound("paddle_explosion.wav");
             //paddle->SetColor(RandomColor());
             paddle->Whittle();
-            Game::GetCamera().Shake(25.0f, 1.0f);
+            PlayScreen::GetCamera().Shake(25.0f, 1.0f);
             _angle = 360.0f - (_angle - 180.0f);
             if(_angle > 360.0f) _angle -= 360.0f;
 

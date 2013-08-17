@@ -8,13 +8,13 @@
 
 #include "stdafx.h"
 #include "AIPaddle.h"
-#include "Game.h"
+#include "PlayScreen.h"
 #include "GameBall.h"
 
 void AIPaddle::HandleInput()
 {
     const GameBall* gameBall = static_cast<GameBall*>
-    (Game::GameObjects().Get("Ball"));
+    (PlayScreen::GameObjects()->Get("Ball"));
 
     sf::Vector2f ballPosition = gameBall->GetPosition();
 
