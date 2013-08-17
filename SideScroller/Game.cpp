@@ -11,6 +11,7 @@
 #include "Game.h"
 #include "SplashScreen.h"
 #include "MainMenu.h"
+#include "RectangleParticle.h"
 
 void Game::Start(void)
 {
@@ -32,7 +33,13 @@ void Game::Start(void)
 
     GameBall *ball = new GameBall();
 
-    Emitter* pEmitter = new Emitter(500,0.1f);
+    sf::RectangleShape r = *new sf::RectangleShape();
+
+    r.setSize(sf::Vector2f(5.0f, 5.0f));
+    r.setOrigin(r.getSize().x/2,r.getSize().y/2);
+
+    Particles::RectangleParticle ps = *new Particles::RectangleParticle(&r);
+    Particles::Emitter* pEmitter = new Particles::Emitter(&ps, 500,0.1f);
 
     _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Paddle2", player2);
