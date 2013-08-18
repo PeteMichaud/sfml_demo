@@ -15,12 +15,14 @@ namespace Particles {
     public ParticleShape
     {
     public:
-        Spark();
+        Spark(sf::Vector2f direction);
         sf::Drawable* MutateShape(Particles::Particle* p);
         void Update(Particles::Particle* p, float deltaTime);
         void Reset(Particles::Particle* p);
         Particles::Particle* Create(float radius);
 
+    private:
         sf::Color _color;
+        sf::Vector2f _direction;
     };
 }

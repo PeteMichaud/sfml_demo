@@ -10,8 +10,9 @@
 #include "mathhelpers.h"
 
 namespace Particles {
-    Spark::Spark() :
-        _color(sf::Color::Yellow)
+    Spark::Spark(sf::Vector2f direction) :
+        _color(sf::Color::Yellow),
+        _direction(direction*40.0f)
     {
         sf::RectangleShape* r = new sf::RectangleShape();
 
@@ -32,7 +33,7 @@ namespace Particles {
     {
         p->_velocity += p->_accel * deltaTime;
         p->move(p->_velocity * deltaTime);
-        p->rotate(36.0f * deltaTime);
+        p->rotate(0.5f);
         p->_alpha = ((p->_lifeSpan - p->_age) / p->_lifeSpan) * 255;
         p->_age += deltaTime;
     }
@@ -40,13 +41,13 @@ namespace Particles {
     Particles::Particle* Spark::Create(float radius)
     {
         return new Particle(
-            1.0f, //lifespan
-            6.0f, //age
+            0.5f, //lifespan
+            1.0f, //age
             255, //alpha
-            randf(360.0f), //angle
-            sf::Vector2f(randf(-radius,radius),randf(-radius,radius)),
-            sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f)),
-            sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f))
+            0.0f, //angle
+            sf::Vector2f(15.0f*(_direction.x/std::abs(_direction.x)),0.0f),
+            sf::Vector2f(0.0f, _direction.y),
+            sf::Vector2f(0.0f, 0.0f)
             );
     }
 
@@ -55,10 +56,10 @@ namespace Particles {
         p->_alpha = 255;
         p->_translation = sf::Transform();
         p->_rotation = sf::Transform();
-        p->move(sf::Vector2f(randf(-50.0f,50.0f),randf(-50.0f,50.0f)));
-        p->rotate(randf(360.0f));
-        p->_velocity = sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f));
-        p->_accel = sf::Vector2f(randf(-10.0f,10.0f),randf(-10.0f,10.0f));
+        p->move(sf::Vector2f(15.0f*(_direction.x/std::abs(_direction.x)),0.0f));
+        //p->rotate(randf(360.0f));
+        p->_velocity = sf::Vector2f(0.0f, _direction.y);
+        p->_accel = sf::Vector2f(0.0f, 0.0f);
         p->_age = 0.0f;
         p->_alive = true;
     }
