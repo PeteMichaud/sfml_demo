@@ -57,22 +57,37 @@ void GameObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 {
     std::map<std::string,VisibleGameObject*>::const_iterator itr =
         _gameObjects.begin();
-    while(itr != _gameObjects.end())
+    for(;itr != _gameObjects.end();itr++)
     {
         itr->second->Draw(renderWindow);
-        itr++;
     }
 }
 
 void GameObjectManager::UpdateAll()
 {
+
     std::map<std::string,VisibleGameObject*>::const_iterator itr =
         _gameObjects.begin();
+
+    //remove dead objects
+    for(; itr != _gameObjects.end(); )
+    {
+        if (itr->second->IsDead())
+        {
+            itr = _gameObjects.erase(itr++);
+        }
+        else
+        {
+            ++itr;
+        }
+    }
+
+    itr = _gameObjects.begin();
+
     float timeDelta = clock.restart().asSeconds();
 
-    while(itr != _gameObjects.end())
+    for(;itr != _gameObjects.end();itr++)
     {
         itr->second->Update(timeDelta);
-        itr++;
     }
 }
