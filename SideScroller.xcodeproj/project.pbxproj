@@ -189,6 +189,7 @@
 		C15A388717A5D775002C2764 /* SideScroller */ = {
 			isa = PBXGroup;
 			children = (
+				C1415C0317B1B6D800918E6C /* GameObjects */,
 				C1415C0217B1B6A300918E6C /* GameState */,
 				C1415C0017B1B62900918E6C /* Helpers */,
 				C1415C0117B1B64600918E6C /* Services */,
@@ -251,7 +252,6 @@
 		C1B8D45A17C03FF9003D3032 /* PlayScreen */ = {
 			isa = PBXGroup;
 			children = (
-				C1415C0317B1B6D800918E6C /* GameObjects */,
 				C114169E17AD816500E545B4 /* GameObjectManager.cpp */,
 				C114169F17AD816500E545B4 /* GameObjectManager.h */,
 				C1415BFD17B1871000918E6C /* Camera.cpp */,
