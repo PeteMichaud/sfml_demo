@@ -15,7 +15,8 @@
 #include "PauseMenu.h"
 
 PlayScreen::PlayScreen(sf::RenderWindow* rw) :
-    GameState(rw)
+    GameState(rw),
+    _totalTime(0.0f)
 {
     
 }
@@ -38,17 +39,35 @@ void PlayScreen::Initialize()
     _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Paddle2", player2);
     _gameObjectManager.Add("Ball", ball);
+
+    _backgroundTexture.loadFromFile(resourcePath("play_back.png"));
+    _backgroundSprite.setTexture(_backgroundTexture);
+
+
+    _backgroundShader.loadFromFile(
+                               resourcePath("ripple.vert"),
+                               resourcePath("ripple.frag"));
+    _backgroundShader.setParameter("tex0", sf::Shader::CurrentTexture);
+    _backgroundShader.setParameter("resolution", sf::Vector2f(1024.0f,768.0f));
+    
+
 }
 
 void PlayScreen::Loop()
 {
+    _totalTime += _clock.restart().asSeconds();
+
     _camera.Update();
-
     _rw->setView(_camera.GetView());
-    _rw->clear(sf::Color(37,78,106));
 
+    _backgroundShader.setParameter("time", _totalTime);
+    std::cout << _totalTime << " \n";
+    _rw->draw(_backgroundSprite, &_backgroundShader
+              );
+    
     _gameObjectManager.UpdateAll();
     _gameObjectManager.DrawAll(*_rw);
+
 
     _rw->display();
 

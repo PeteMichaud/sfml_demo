@@ -27,5 +27,11 @@ public:
 private:
     static Camera _camera;
     static GameObjectManager _gameObjectManager;
-    
+
+    sf::Texture _backgroundTexture;
+    sf::Sprite _backgroundSprite;
+    sf::Shader _backgroundShader;
+    sf::Clock _clock;
+
+    float _totalTime;
 };
