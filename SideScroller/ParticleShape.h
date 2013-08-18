@@ -23,6 +23,7 @@ namespace Particles
         virtual Particles::Particle* Create(float radius) = 0;
 
     protected:
+        ParticleShape(); //ctor used by base classes
         sf::Drawable* _shape;
         template <typename T>
         T GetShape()

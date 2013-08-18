@@ -8,10 +8,10 @@
 
 #include "ParticleShape.h"
 namespace Particles {
+    ParticleShape::ParticleShape() { }
+
     ParticleShape::ParticleShape(sf::Drawable* shape)
-    : _shape(shape)
-    {
-    }
+    : _shape(shape) { }
 
     ParticleShape::~ParticleShape()
     {
