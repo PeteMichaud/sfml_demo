@@ -62,18 +62,19 @@ void PlayScreen::Loop()
     _rw->display();
 
     sf::Event currentEvent;
-    _rw->pollEvent(currentEvent);
-
-    if(currentEvent.type == sf::Event::Closed)
+    if(_rw->pollEvent(currentEvent))
     {
-        Game::StateStack()->Clear();
-    }
-
-    if(currentEvent.type == sf::Event::KeyPressed)
-    {
-        if(currentEvent.key.code == sf::Keyboard::Escape)
+        if(currentEvent.type == sf::Event::Closed)
         {
-            Game::StateStack()->Push(new PauseMenu(_rw));
+            Game::StateStack()->Clear();
+        }
+
+        if(currentEvent.type == sf::Event::KeyPressed)
+        {
+            if(currentEvent.key.code == sf::Keyboard::Escape)
+            {
+                Game::StateStack()->Push(new PauseMenu(_rw));
+            }
         }
     }
 }
