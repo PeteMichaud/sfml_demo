@@ -35,18 +35,9 @@ void PlayScreen::Initialize()
 
     GameBall* ball = new GameBall();
 
-    sf::RectangleShape* r = new sf::RectangleShape();
-
-    r->setSize(sf::Vector2f(5.0f, 5.0f));
-    r->setOrigin(r->getSize().x/2,r->getSize().y/2);
-
-    Particles::RectangleParticle* ps = new Particles::RectangleParticle(r);
-    Particles::Emitter* pEmitter = new Particles::Emitter(ps, sf::Vector2f(512,384),  500, 0.1f);
-
     _gameObjectManager.Add("Paddle1", player1);
     _gameObjectManager.Add("Paddle2", player2);
     _gameObjectManager.Add("Ball", ball);
-    _gameObjectManager.Add("Emitter", pEmitter);
 }
 
 void PlayScreen::Loop()
@@ -84,7 +75,7 @@ Camera& PlayScreen::GetCamera()
     return _camera;
 }
 
-const GameObjectManager* PlayScreen::GameObjects()
+GameObjectManager* PlayScreen::GameObjects()
 {
     return &PlayScreen::_gameObjectManager;
 }

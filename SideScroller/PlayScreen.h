@@ -21,7 +21,7 @@ public:
     void Loop();
     void Initialize();
     static Camera& GetCamera();
-    static const GameObjectManager* GameObjects();
+    static GameObjectManager* GameObjects();
 
 
 private:
