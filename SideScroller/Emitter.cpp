@@ -9,15 +9,19 @@
 #include "Emitter.h"
 #include "Game.h"
 #include "mathhelpers.h"
+#include "stringhelpers.h"
+
 namespace Particles
 {
 
-    Emitter::Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval):
+    Emitter::Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval, int dieAfter):
     _emitInterval(emitInterval),
     _shape(shape),
     _elapsedTime(0.0f),
     _lastEmissionTime(0.0f),
-    _radius(0.0f)
+    _radius(0.0f),
+    _particlesEmitted(0),
+    _dieAfter(dieAfter)
     {
         _emitterTransform.translate(position);
         for(int i = 0; i < particleCount; i++)
@@ -42,24 +46,31 @@ namespace Particles
         for(_it = _particles.begin(); _it != _particles.end();_it++)
         {
             //kill if too old
-            if ((*_it)->_age > (*_it)->_lifeSpan)
+            if ((*_it)->_alive)
             {
-                (*_it)->_alive = false;
-            }
-            else
-            {
-                _shape->Update(*_it, deltaTime);
+                if ((*_it)->_age > (*_it)->_lifeSpan)
+                {
+                    (*_it)->_alive = false;
+                }
+                else
+                {
+                    _shape->Update(*_it, deltaTime);
+                }
             }
         }
 
         //emit new particles if it's time
-        if (_elapsedTime >= _lastEmissionTime+_emitInterval)
+        if (!EmissionComplete())
         {
-            Particles::Particle* p = GetFirstDead();
-            if (p != NULL)
+            if(_elapsedTime >= _lastEmissionTime+_emitInterval)
             {
-                _shape->Reset(p);
-                _lastEmissionTime = _elapsedTime;
+                Particles::Particle* p = GetFirstDead();
+                if (p != NULL)
+                {
+                    _shape->Reset(p);
+                    _lastEmissionTime = _elapsedTime;
+                    _particlesEmitted++;
+                }
             }
         }
     }
@@ -93,5 +104,24 @@ namespace Particles
         }
 
         return NULL;
+    }
+
+    bool Emitter::EmissionComplete() const
+    {
+        return _particlesEmitted > _dieAfter && _dieAfter > 0;
+    }
+
+    bool Emitter::IsDead() const
+    {
+        return EmissionComplete() && AllParticlesDead();
+    }
+
+    bool Emitter::AllParticlesDead() const
+    {
+        return std::find_if(
+            _particles.begin(),
+            _particles.end(),
+            [](Particles::Particle* p) { return p->_alive; })
+        == _particles.end();
     }
 }

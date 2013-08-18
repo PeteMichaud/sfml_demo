@@ -17,13 +17,13 @@ namespace Particles {
     class Emitter :
         public VisibleGameObject {
     public:
-            Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval);
+            Emitter(ParticleShape* shape, sf::Vector2f position, int particleCount, float emitInterval, int dieAfter = 0);
         ~Emitter();
         void Update(float elapsedTime);
         void Draw(sf::RenderWindow& rw);
 
         void Move(sf::Vector2f delta);
-
+        bool IsDead() const;
         struct ParticleDeallocator
         {
             void operator()(const Particles::Particle* p) const
@@ -34,6 +34,8 @@ namespace Particles {
 
     private:
         Particles::Particle* GetFirstDead();
+        bool AllParticlesDead() const;
+        bool EmissionComplete() const;
         ParticleShape* _shape;
         sf::Transform _emitterTransform;
         std::vector<Particles::Particle*> _particles;
@@ -43,5 +45,7 @@ namespace Particles {
         float _elapsedTime;
         float _lastEmissionTime;
         float _radius;
+        int _particlesEmitted;
+        int _dieAfter;
     };
 }
