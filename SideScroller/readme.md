@@ -5,7 +5,6 @@ The goal is to disappear before your opponent
 
 = To do
 
-*   Fix Pause Menu (can't really get back to game after pausing)
 *   Add particle system for "people" running around the map.
     *   Implement collision detection for them, so the ball can run them over
     *   create blood stain in the direction the ball is rolling
