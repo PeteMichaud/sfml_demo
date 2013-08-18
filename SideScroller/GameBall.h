@@ -21,7 +21,7 @@ private:
     void Set();
     void Reset();
     void Crash() const;
-    void Spark() const;
+    void Spark(sf::Vector2f direction) const;
     sf::Vector2f CheckWallCollisions(sf::Vector2f moveBy);
     sf::Vector2f CheckPaddleCollision(sf::Vector2f moveBy, Paddle* object);
     sf::Vector2f GetMovementVector(float elapsedTime);

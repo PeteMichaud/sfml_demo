@@ -138,7 +138,7 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
         moveBy.x = -moveBy.x;
         Crash();
         PlayScreen::GetCamera().Shake(15.0f, 0.5f);
-        Spark();
+        Spark(moveBy);
     }
 
     //top
@@ -161,9 +161,10 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
     return moveBy;
 }
 
-void GameBall::Spark() const
+void GameBall::Spark(sf::Vector2f direction) const
 {
-    Particles::Spark* ps = new Particles::Spark();
+    Particles::Spark* ps =
+        new Particles::Spark(-direction);
     Particles::Emitter* sparks = new Particles::Emitter(
         ps,
         GetPosition(),
