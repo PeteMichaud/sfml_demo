@@ -22,7 +22,7 @@ public:
     virtual void SetPosition(float x, float y);
     virtual sf::Vector2f GetPosition() const;
     virtual bool IsLoaded() const;
-
+    virtual bool IsDead() const;
     virtual float GetWidth() const;
     virtual float GetHeight() const;
 

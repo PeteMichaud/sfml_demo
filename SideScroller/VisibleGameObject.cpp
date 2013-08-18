@@ -119,3 +119,8 @@ sf::Text VisibleGameObject::DebugText(std::string msg, sf::Vector2f pos)
     text.setPosition(pos);
     return text;
 }
+
+bool VisibleGameObject::IsDead() const
+{
+    return false;
+}
