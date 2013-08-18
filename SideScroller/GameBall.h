@@ -20,7 +20,8 @@ public:
 private:
     void Set();
     void Reset();
-    void Crash();
+    void Crash() const;
+    void Spark() const;
     sf::Vector2f CheckWallCollisions(sf::Vector2f moveBy);
     sf::Vector2f CheckPaddleCollision(sf::Vector2f moveBy, Paddle* object);
     sf::Vector2f GetMovementVector(float elapsedTime);
@@ -42,6 +43,5 @@ private:
     sf::Texture _shadowBigTexture;
 
     sf::Vector2f _centerScreen;
-    int _crashes = 4;
-
+    int _crashes = 4;\
 };

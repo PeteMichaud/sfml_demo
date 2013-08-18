@@ -12,6 +12,11 @@
 #include "Game.h"
 #include "PlayerPaddle.h"
 #include "AIPaddle.h"
+
+#include "Emitter.h"
+#include "Spark.h"
+#include "PlayScreen.h"
+
 #include "stringhelpers.h"
 #include "mathhelpers.h"
 
@@ -133,6 +138,7 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
         moveBy.x = -moveBy.x;
         Crash();
         PlayScreen::GetCamera().Shake(15.0f, 0.5f);
+        Spark();
     }
 
     //top
@@ -155,8 +161,21 @@ sf::Vector2f GameBall::CheckWallCollisions(sf::Vector2f moveBy)
     return moveBy;
 }
 
+void GameBall::Spark() const
+{
+    Particles::Spark* ps = new Particles::Spark();
+    Particles::Emitter* sparks = new Particles::Emitter(
+        ps,
+        GetPosition(),
+        100,
+        0.001f,
+        100);
 
-void GameBall::Crash()
+    PlayScreen::GameObjects()->Add("Sparks" + to_s(sparks), sparks);
+    
+}
+
+void GameBall::Crash() const
 {
     ServiceLocator::GetAudio()->PlaySound("crash" + to_s(std::rand()%_crashes) + ".ogg");
 }
