@@ -32,6 +32,7 @@
 		C1B8D45217BFEA00003D3032 /* PlayScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45017BFEA00003D3032 /* PlayScreen.cpp */; };
 		C1B8D45617C01A6C003D3032 /* GameStateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45417C01A6C003D3032 /* GameStateStack.cpp */; };
 		C1B8D45917C02B55003D3032 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45717C02B54003D3032 /* PauseMenu.cpp */; };
+		C1B8D45D17C04B9A003D3032 /* Spark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1B8D45B17C04B99003D3032 /* Spark.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		C1B8D45517C01A6C003D3032 /* GameStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateStack.h; sourceTree = "<group>"; };
 		C1B8D45717C02B54003D3032 /* PauseMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenu.cpp; sourceTree = "<group>"; };
 		C1B8D45817C02B54003D3032 /* PauseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseMenu.h; sourceTree = "<group>"; };
+		C1B8D45B17C04B99003D3032 /* Spark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spark.cpp; sourceTree = "<group>"; };
+		C1B8D45C17C04B9A003D3032 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 				C1B8D44617BEF4A6003D3032 /* ParticleShape.h */,
 				C1B8D44917BEFDED003D3032 /* RectangleParticle.cpp */,
 				C1B8D44A17BEFDED003D3032 /* RectangleParticle.h */,
+				C1B8D45B17C04B99003D3032 /* Spark.cpp */,
+				C1B8D45C17C04B9A003D3032 /* Spark.h */,
 			);
 			name = ParticleShapes;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				C1B8D45217BFEA00003D3032 /* PlayScreen.cpp in Sources */,
 				C1B8D45617C01A6C003D3032 /* GameStateStack.cpp in Sources */,
 				C1B8D45917C02B55003D3032 /* PauseMenu.cpp in Sources */,
+				C1B8D45D17C04B9A003D3032 /* Spark.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
